@@ -1,0 +1,56 @@
+$base-size: 18;
+@function rem($target, $context: $base-size) {
+    @return (calc($target / $base-size)) * 1rem;
+}
+
+// colors
+$white: #FFFFFF;
+$black: #000000;
+$primary: #F8DC4A;
+$white-f: #F8F8F8;
+
+$imgPath: "../../images";
+$globalGap: rem(40);
+
+/////////////////////////////////////////////
+$default-behaviour: true; //  true or false
+
+//== font-families
+@font-face {
+    font-family: 'RobotoThin';
+    src: url(../../fonts/English/Roboto/Roboto-Thin.ttf);
+}
+@font-face {
+    font-family: 'RobotoLight';
+    src: url(../../fonts/English/Roboto/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: 'RobotoRegular';
+    src: url(../../fonts/English/Roboto/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url(../../fonts/English/Roboto/Roboto-Medium.ttf);
+}
+@font-face {
+    font-family: 'RobotoBold';
+    src: url(../../fonts/English/Roboto/Roboto-Bold.ttf);
+}
+
+$fontThin: 'RobotoThin';
+$fontLight: 'RobotoLight';
+$fontRegular: 'RobotoRegular';
+$fontMedium: 'RobotoMedium';
+$fontBold: 'RobotoBold';
+
+//
+// font family
+$font-family-default: $fontRegular;
+$font-numbers-default: $fontRegular;
+$fonts-map-default: (
+);
+// font family
+$font-family-reverse: $fontRegular;
+$font-numbers-reverse: $fontRegular;
+$fonts-map-reverse: (
+);

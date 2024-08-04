@@ -1,0 +1,131 @@
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  color: #FFF;
+  font-family: $fontLight;
+  .header-wrapper {
+    padding: $globalGap 0 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: rem(16);
+  }
+  .logo-container {
+    img {
+      height: rem(30);
+      &.black {
+        display: none;
+      }
+    }
+  }
+  a {
+    color: #FFF;
+    &:hover {
+      color: $primary !important;
+    }
+  }
+  .navs-btns {
+    display: flex;
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      margin-#{$right}: rem(50);
+      a {
+        padding: rem(3) 0;
+        display: block;
+        // line-height: rem(23);
+      }
+      .active {
+        color: $primary;
+        position: relative;
+        font-family: $fontMedium;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          #{$left}: rem(-5);
+          transform: translate(-100%, -50%);
+          width: 0;
+          height: 0;
+          border-top: rem(3) solid transparent;
+          border-bottom: rem(3) solid transparent;
+          border-left: rem(6) solid $primary;
+        }
+      }
+    }
+  }
+  .lang-toggle {
+    margin-#{$left}: rem(35);
+    a:not(.active) {
+      color: #7E7E7E;
+    }
+  }
+  &.dark {
+    color: #000;
+    img {
+      &.black {
+        display: block;
+      }
+      &.white {
+        display: none;
+      }
+    }
+    a {
+      color: #212121;
+    }
+  }
+}
+.preloading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#fff, 1);
+  z-index: 9999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-height: rem(80);
+  }
+  svg {
+    height: rem(50);
+    position: relative;
+    #logoIconGroub {
+      // transform: translateX(43%);
+    }
+    #logoLettersGroub {
+      rect {
+        opacity: 0;
+      }
+    }
+  }
+}
+.backtop {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  bottom: rem(20);
+  right: rem(30);
+  z-index: 99;
+  border: none;
+  outline: none;
+  transition: all ease 0.3s;
+  cursor: pointer;
+  padding: rem(30);
+  border-radius: 50%;
+  background: url(#{$imgPath}/icons/arrow-white-right.svg) no-repeat $primary center / #{rem(20)};
+  transform: rotate(-90deg);
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover {
+    // background-color: $lightBlue;
+    // color: $darkBlue;
+  }
+}
