@@ -4,7 +4,7 @@ header {
   top: 0;
   left: 0;
   z-index: 99;
-  color: #FFF;
+  color: #fff;
   font-family: $fontLight;
   .header-wrapper {
     padding: $globalGap 0 0;
@@ -21,7 +21,7 @@ header {
     }
   }
   a {
-    color: #FFF;
+    color: #fff;
     &:hover {
       color: $primary !important;
     }
@@ -43,7 +43,7 @@ header {
         position: relative;
         font-family: $fontMedium;
         &:before {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           #{$left}: rem(-5);
@@ -60,7 +60,7 @@ header {
   .lang-toggle {
     margin-#{$left}: rem(35);
     a:not(.active) {
-      color: #7E7E7E;
+      color: #7e7e7e;
     }
   }
   &.dark {
@@ -127,5 +127,40 @@ header {
   &:hover {
     // background-color: $lightBlue;
     // color: $darkBlue;
+  }
+}
+.cursor {
+  color: #abaaaa;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    visibility 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(95);
+    height: rem(95);
+    color: #000;
+    border-radius: 50%;
+    background-color: $primary;
+    font-size: rem(64);
+    font-family: $fontThin;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(0) rotate(-360deg);
+  }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    .btn {
+      transform: scale(1) rotate(0);
+    }
   }
 }

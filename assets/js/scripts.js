@@ -14,6 +14,28 @@ $(document)
         $('html, body').animate({ scrollTop: 0 });
     })
 
+/***************************************************************************
+ * CURSOR 
+ * *********************/
+$(document)
+    .ready(function () {
+        $(".project-wrapper .project-image").hover(function () {
+            $('.cursor').addClass('active');
+            $(this).addClass('active');
+            $(this).find('video').get(0).currentTime = 0;
+            $(this).find('video').get(0).play();
+        }, function () {
+            $('.cursor').removeClass('active');
+            $('.project-wrapper .project-image').removeClass('active');
+            $(this).find('video').get(0).pause();
+        });
+    })
+    .on('mousemove', function (e) {
+        setTimeout(() => {
+            $('.cursor').css({ top: e.clientY + 20, left: e.clientX + 20 });
+        }, 200);
+    })
+
 /*********************************************
  * FUNCTIONS
 /*********************************************/
@@ -44,7 +66,28 @@ function onWindowLoad() {
 }
 
 function homePage() {
+    partnersSliders();
+}
 
+function partnersSliders() {
+    // var slider = $('.partners .slider-wrapper');
+    // slider.flickity({
+    //     accessibility: true,
+    //     resize: true,
+    //     wrapAround: true,
+    //     prevNextButtons: false,
+    //     pageDots: false,
+    //     percentPosition: true,
+    //     setGallerySize: true,
+
+    //     // rightToLeft: true,
+    //     // cellAlign: 'center',
+    //     // contain: true,
+    //     // freeScroll: true,
+    //     // prevNextButtons: false,
+    //     // pageDots: false,
+    //     // autoPlay: 1500,
+    // });
 }
 
 $.fn.isInViewport = function () {
@@ -78,3 +121,44 @@ function headerTheme() {
         }
     });
 }
+
+let marqueeSlider = document.querySelector('.partners .slider-wrapper');
+let mainTicker = new Flickity('.partners .slider-wrapper', {
+  accessibility: true,
+  resize: true,
+  wrapAround: true,
+  prevNextButtons: false,
+  pageDots: false,
+  percentPosition: true,
+  setGallerySize: true,
+});
+
+// Set initial position to be 0
+mainTicker.x = 0;
+
+// Start the marquee animation
+play();
+
+function play() {
+  // Set the decrement of position x
+  mainTicker.x -= 1.5;
+  mainTicker.settle(mainTicker.x);
+  requestId = window.requestAnimationFrame(play);
+}
+
+// Main function to cancel the animation.
+function pause() {
+  if(requestId) {
+    // Cancel the animation
+    window.cancelAnimationFrame(requestId)
+
+    // Reset the requestId for the next animation.
+    requestId = undefined;
+  }
+}
+
+// Pause on hover/focus
+marqueeSlider.addEventListener('mouseenter', () => pause());
+
+// Unpause on mouse out / defocus
+marqueeSlider.addEventListener('mouseleave', () => play());
