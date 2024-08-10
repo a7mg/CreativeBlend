@@ -8,13 +8,13 @@
   <link rel="icon" type="image/x-icon" href="assets/images/fav.svg">
 
   <link rel="stylesheet" href="assets/css/libs/flickity.min.css">
-
+  <link rel="stylesheet" href="assets/css/libs/locomotive-scroll.min.css">
   <link rel="stylesheet" href="assets/css/en/style.css">
 </head>
 
-<body class="loaded">
+<body>
 
-  <header></header>
+  <header data-scroll-sticky></header>
 
   <div class="preloading" id="loading" style="display: none;">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="624.362" height="61.058"
@@ -75,128 +75,138 @@
     <button class="btn">+</button>
   </div>
 
-  <section class="home-hero">
-    <div class="bg" style="background-image: url(assets/images/scape.jpg);"></div>
-    <div class="hero-wrapper">
-      <div class="container">
-        <div class="text-wrapper">
-          <h2>create innovative
-            advertising<span class="yellow">____</span>solutions</h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-bottom">
-      <div class="container">
-        <button class="btn scroll-btn">Scroll down</button>
-        <div class="video-thumb">
-          <div class="video-inner base-fit">
-            <video width="1600" height="900" playsinline autoplay loop muted
-              src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
+  <div data-scroll-container>
+    <section data-scroll-section class="home-hero">
+      <div class="bg" style="background-image: url(assets/images/scape.jpg);"></div>
+      <div class="hero-wrapper">
+        <div class="container">
+          <div class="text-wrapper">
+            <h2>
+              <div>
+                <span>create innovative</span>
+              </div>
+              <div>
+                <span>advertising <span class="yellow">____</span> solutions</span>
+              </div>
+            </h2>
           </div>
-          <button class="btn play-btn"><span></span></button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="home-section our-value dark-header">
-    <div class="container">
-      <div class="title">
-        <h2>Our Values</h2>
-        <div class="border"></div>
+      <div class="hero-bottom">
+        <div class="container">
+          <button class="btn scroll-btn">Scroll down</button>
+          <div class="video-thumb">
+            <div class="video-inner base-fit">
+              <video width="1600" height="900" playsinline autoplay loop muted
+                src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
+            </div>
+            <button class="btn play-btn"><span></span></button>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="content">
-        <p>
-          Creative Blend<span class="yellow">_____</span>takes PRIDE in everything we do and every<span
-            class="yellow">_____</span> service we provide. Through Passion, Reliability, Inspiration,
-          Diversity and Exceptional Value, our<span class="yellow">_____</span> experienced team of
-          advertising professionals are tasked with providing our clients with real world branding and
-          marketing strategies that offer them<span class="yellow">_____</span>the success their business’
-          need.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-section projects">
-    <div class="container">
-      <div class="images-viewer">
-        <img src="" alt="">
-      </div>
-
-      <div class="featured">
+    <section data-scroll-section class="home-section our-value dark-header">
+      <div class="container">
         <div class="title">
-          <h2>Featured work +</h2>
+          <h2>Our Values</h2>
           <div class="border"></div>
         </div>
 
-        <div class="projects-list">
-          <div class="project-item">
-            <a href="#" class="project-wrapper">
-              <div class="project-image base-fit">
-                <img src="assets/images/project-1.jpg" alt="">
-                <video width="1600" height="900" playsinline loop muted
-                  src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
-              </div>
-              <div class="project-content">
-                <h3>Project name</h3>
-                <div class="poject-info">
-                  <div>Branding</div>
-                  <div>Events</div>
-                  <div>Social media</div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="project-item">
-            <a href="#" class="project-wrapper">
-              <div class="project-image base-fit">
-                <img src="assets/images/project-2.jpg" alt="">
-                <video width="1600" height="900" playsinline loop muted
-                  src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
-              </div>
-              <div class="project-content">
-                <h3>Project name</h3>
-                <div class="poject-info">
-                  <div>Branding</div>
-                  <div>Events</div>
-                  <div>Social media</div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="project-item">
-            <a href="#" class="project-wrapper">
-              <div class="project-image base-fit">
-                <img src="assets/images/project-3.jpg" alt="">
-                <video width="1600" height="900" playsinline loop muted
-                  src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
-              </div>
-              <div class="project-content">
-                <h3>Project name</h3>
-                <div class="poject-info">
-                  <div>Branding</div>
-                  <div>Events</div>
-                  <div>Social media</div>
-                </div>
-              </div>
-            </a>
-          </div>
+        <div class="content">
+          <p>
+            Creative Blend<span class="yellow">_____</span>takes PRIDE in everything we do and every<span
+              class="yellow">_____</span> service we provide. Through Passion, Reliability, Inspiration,
+            Diversity and Exceptional Value, our<span class="yellow">_____</span> experienced team of
+            advertising professionals are tasked with providing our clients with real world branding and
+            marketing strategies that offer them<span class="yellow">_____</span>the success their business’
+            need.
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="section-btn-wrapper">
-        <a href="#" class="btn">
-          <div class="icon">+</div>
-          <div>Show more work</div>
-        </a>
+    <section data-scroll-section class="home-section projects">
+      <div class="container">
+        <div class="images-viewer">
+          <!-- <div id="imageContainer">
+            <img id="randomImage" src="" alt="Random Image">
+          </div> -->
+        </div>
+
+        <div class="featured">
+          <div class="title">
+            <h2>Featured work +</h2>
+            <div class="border"></div>
+          </div>
+
+          <div class="projects-list">
+            <div class="project-item">
+              <a href="#" class="project-wrapper">
+                <div class="project-image base-fit">
+                  <img src="assets/images/project-1.jpg" alt="">
+                  <video width="1600" height="900" playsinline loop muted
+                    src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
+                </div>
+                <div class="project-content">
+                  <h3>Project name</h3>
+                  <div class="poject-info">
+                    <div>Branding</div>
+                    <div>Events</div>
+                    <div>Social media</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="project-item">
+              <a href="#" class="project-wrapper">
+                <div class="project-image base-fit">
+                  <img src="assets/images/project-2.jpg" alt="">
+                  <video width="1600" height="900" playsinline loop muted
+                    src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
+                </div>
+                <div class="project-content">
+                  <h3>Project name</h3>
+                  <div class="poject-info">
+                    <div>Branding</div>
+                    <div>Events</div>
+                    <div>Social media</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="project-item">
+              <a href="#" class="project-wrapper">
+                <div class="project-image base-fit">
+                  <img src="assets/images/project-3.jpg" alt="">
+                  <video width="1600" height="900" playsinline loop muted
+                    src="https://player.vimeo.com/progressive_redirect/playback/928373360/rendition/240p/file.mp4?loc=external&amp;signature=87f6fb6383f362936f9580d81a3bd8d783bee94eb0db28f718129b16278d1bc4"></video>
+                </div>
+                <div class="project-content">
+                  <h3>Project name</h3>
+                  <div class="poject-info">
+                    <div>Branding</div>
+                    <div>Events</div>
+                    <div>Social media</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-btn-wrapper">
+          <a href="#" class="btn">
+            <div class="icon">+</div>
+            <div>Show more work</div>
+          </a>
+        </div>
       </div>
-    </div>
+  </div>
   </section>
 
-  <section class="home-section services dark-header">
+  <section data-scroll-section class="home-section services dark-header">
     <div class="container">
       <div class="title">
         <h2>services</h2>
@@ -245,7 +255,7 @@
     </div>
   </section>
 
-  <section class="home-section partners">
+  <section data-scroll-section class="home-section partners">
     <div class="container">
       <div class="head-text">
         THE BRANDS <br>
@@ -253,7 +263,7 @@
       </div>
     </div>
     <div class="sliders">
-      <div class="slider-wrapper">
+      <div class="marquee">
         <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
         <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
         <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
@@ -275,57 +285,57 @@
         <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
         <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
       </div>
-      <!-- <div class="slider-wrapper">
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-			</div>
-			<div class="slider-wrapper">
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
-				<div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
-			</div> -->
+      <div class="marquee right">
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+      </div>
+      <div class="marquee">
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 13.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 16.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 18.png" alt=""></div>
+        <div class="item"><img src="assets/images/logos/Image 25.png" alt=""></div>
+      </div>
     </div>
   </section>
 
-  <section class="home-section team">
+  <section data-scroll-section class="home-section team">
     <div class="container">
       <div class="head-text">
-        Meet some creative<span>_____</span><br>
+        Meet some creative<span class="yellow">_____</span><br>
         blenders you’ll work with
       </div>
 
@@ -367,7 +377,7 @@
     </div>
   </section>
 
-  <footer class="dark-header">
+  <footer data-scroll-section class="dark-header">
     <div class="container">
       <div class="footer-top">
         <div class="left">
@@ -409,38 +419,50 @@
       </div>
     </div>
     <div class="marquee-wrapper">
-      <div class="marquee">
+      <div class="marquee" data-speed="5000">
         <div class="item">
-          <span>contact us</span>
+          <div><span>contact us</span></div>
+        </div>
+        <div class="item">
           <a href="#" class="website">
             <img src="assets/images/icons/web.svg" alt="">
-            HELLO@CREATIVEBLEND.COM.SA
-          </a>
-          <a href="#" class="email">
-            <img src="assets/images/icons/message.svg" alt="">
-            HELLO@CREATIVEBLEND.COM.SA
+            <span>HELLO@CREATIVEBLEND.COM.SA</span>
           </a>
         </div>
         <div class="item">
-          <span>contact us</span>
-          <a href="#" class="website">
-            <img src="assets/images/icons/web.svg" alt="">
-            HELLO@CREATIVEBLEND.COM.SA
-          </a>
           <a href="#" class="email">
             <img src="assets/images/icons/message.svg" alt="">
-            HELLO@CREATIVEBLEND.COM.SA
+            <span>HELLO@CREATIVEBLEND.COM.SA</span>
           </a>
         </div>
         <div class="item">
-          <span>contact us</span>
+          <div><span>contact us</span></div>
+        </div>
+        <div class="item">
           <a href="#" class="website">
             <img src="assets/images/icons/web.svg" alt="">
-            HELLO@CREATIVEBLEND.COM.SA
+            <span>HELLO@CREATIVEBLEND.COM.SA</span>
           </a>
+        </div>
+        <div class="item">
           <a href="#" class="email">
             <img src="assets/images/icons/message.svg" alt="">
-            HELLO@CREATIVEBLEND.COM.SA
+            <span>HELLO@CREATIVEBLEND.COM.SA</span>
+          </a>
+        </div>
+        <div class="item">
+          <div><span>contact us</span></div>
+        </div>
+        <div class="item">
+          <a href="#" class="website">
+            <img src="assets/images/icons/web.svg" alt="">
+            <span>HELLO@CREATIVEBLEND.COM.SA</span>
+          </a>
+        </div>
+        <div class="item">
+          <a href="#" class="email">
+            <img src="assets/images/icons/message.svg" alt="">
+            <span>HELLO@CREATIVEBLEND.COM.SA</span>
           </a>
         </div>
       </div>
@@ -460,12 +482,11 @@
           </div>
 
           <!-- <audio id="audio" controls>
-              <source src="http://www.sousound.com/music/healing/healing_01.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio> -->
+                <source src="http://www.sousound.com/music/healing/healing_01.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio> -->
           <div class="audio">
-            <div class="aWrap"
-              data-src="http://www.sousound.com/music/healing/healing_01.mp3">
+            <div class="aWrap" data-src="http://www.sousound.com/music/healing/healing_01.mp3">
               <button class="aPlay play" disabled><span class="pause"></span></button>
               <div class="seeker">
                 <span class="aNow"></span>
@@ -478,29 +499,30 @@
               </div>
             </div>
             <!-- <div class="volume-container">
-              <span class="aVolIco"><i class="fa fa-volume-up"></i></span>
-              <div class="range-volume">
-                <span class="under-ranger"></span>
-                <input class="aVolume" type="range" min="0" max="1" value="1" step="0.1" disabled><span
-                  class="change-range"></span>
-              </div>
-            </div> -->
+                <span class="aVolIco"><i class="fa fa-volume-up"></i></span>
+                <div class="range-volume">
+                  <span class="under-ranger"></span>
+                  <input class="aVolume" type="range" min="0" max="1" value="1" step="0.1" disabled><span
+                    class="change-range"></span>
+                </div>
+              </div> -->
           </div>
 
         </div>
       </div>
     </div>
   </footer>
+  </div>
 
 
   <script src="assets/js/libs/jquery.min.3.3.1.js"></script>
 
   <script src="assets/js/libs/gsap/gsap.min.js"></script>
-  <script src="assets/js/libs/gsap/DrawSVGPlugin.min.js"></script>
   <script src="assets/js/libs/gsap/SplitText.min.js"></script>
   <script src="assets/js/libs/gsap/scrollTrigger.min.js"></script>
 
   <script src="assets/js/libs/flickity.pkgd.min.js"></script>
+  <script src="assets/js/libs/locomotive-scroll.min.js"></script>
   <script src="assets/js/audioPlayer.js"></script>
   <script src="assets/js/scripts.js"></script>
 </body>

@@ -18,7 +18,7 @@ html {
   //   font-size: 10px;
   // }
   // @media (max-width: 560px) {
-  //   font-size: 13px;
+  //   font-size: 10px;
   // }
 }
 ::-webkit-scrollbar {
@@ -34,20 +34,20 @@ body {
   // color: $black;
   font-family: $font-family-default;
   background-color: $white-f;
-  scroll-behavior: smooth;
-  overflow: hidden;
+  // scroll-behavior: smooth;
+  // overflow: hidden;
   margin: 0;
   text-transform: uppercase;
   cursor: url(#{$imgPath}/icons/cursor.svg), auto;
   overflow-x: hidden;
-  &.loaded {
-    overflow: auto;
-  }
 }
 .container {
   width: 100%;
   margin: auto;
   padding: 0 $globalGap;
+  @media (max-width: 767px) {
+    padding: 0 rem(15);
+  }
 }
 * {
   box-sizing: border-box;
@@ -173,15 +173,5 @@ button:focus {
     &:hover {
       color: $primary !important;
     }
-  }
-}
-
-.marquee-wrapper {
-  overflow: hidden;
-  .marquee {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    white-space: nowrap;
   }
 }

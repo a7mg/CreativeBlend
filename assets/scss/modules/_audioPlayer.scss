@@ -10,6 +10,10 @@
     width: rem(30);
     height: rem(30);
     cursor: pointer;
+    @media (max-width: 580px) {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 .play {
@@ -81,6 +85,9 @@
     font-size: rem(35);
     line-height: rem(46);
     font-family: $fontLight;
+    @media (max-width: 580px) {
+        font-size: 20px;
+    }
     .seeker {
         display: flex;
         align-items: center;
@@ -126,6 +133,10 @@
         cursor: pointer;
         // margin-top: -1px;
         transform: translateY(-50%);
+        @media (max-width: 580px) {
+            width: 15px;
+            height: 15px;
+        }
     }
 
     input[type="range"]::-moz-range-thumb {
