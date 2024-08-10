@@ -67,6 +67,10 @@ function onWindowLoad() {
 
 function homePage() {
     partnersSliders();
+    document.querySelectorAll('.marquee').forEach(element => {
+        marquee(element);
+    });
+    // marquee(document.querySelector('.marquee'));
 }
 
 function partnersSliders() {
