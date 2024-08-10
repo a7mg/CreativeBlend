@@ -244,6 +244,7 @@ footer {
     display: flex;
     align-items: center;
     gap: rem(20);
+    min-width: 50%;
     a:not(.active) {
       opacity: 0.3;
       &:hover {
@@ -254,5 +255,8 @@ footer {
       display: block;
       height: rem(25);
     }
+  }
+  .audio {
+    flex: 1;
   }
 }
