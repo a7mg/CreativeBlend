@@ -63,7 +63,7 @@
                 &:last-child {
                     transition-delay: 0.2s;
                 }
-                .loaded & {
+                .ready & {
                     opacity: 1;
                     transform: none;
                     transition-duration: 0.8s;

@@ -59,7 +59,9 @@ function preLoading() {
         opacity: 0, x: '100%', ease: 'circ', stagger: 0.1, duration: 0.5,
         onComplete: function () {
             if ($('body').hasClass('loaded')) {
-                $('#loading').fadeOut();
+                $('#loading').fadeOut(function() {
+                    $('body').addClass('ready');
+                });
                 preloadingTL.pause();
             }
         }
@@ -81,7 +83,7 @@ function initScroll() {
 
 function onWindowLoad() {
     $('body').addClass('loaded');
-    // scroll.update();
+    scroll.update();
 
     homePage();
 }
@@ -192,10 +194,10 @@ function updateImage() {
 }
 
 // Update image every 2 seconds
-// setInterval(updateImage, 300);
+setInterval(updateImage, 300);
 
-// // Initialize with the first image
-// updateImage();
+// Initialize with the first image
+updateImage();
 
 /*********************************************/
 // allMarquee[i].x = 0;
