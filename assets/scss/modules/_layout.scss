@@ -151,7 +151,7 @@ header {
     }
     #logoLettersGroub {
       rect {
-        opacity: 0;
+        // opacity: 0;
       }
     }
   }
@@ -262,6 +262,10 @@ footer {
     font-size: rem(40);
     font-family: $fontLight;
     line-height: rem(53);
+    @media (max-width: 580px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
     a {
       color: #000;
       display: flex;
@@ -272,6 +276,9 @@ footer {
       img {
         height: rem(35);
         margin-#{$right}: rem(15);
+        @media (max-width: 580px) {
+          height: rem(25);
+        }
       }
     }
     .item {

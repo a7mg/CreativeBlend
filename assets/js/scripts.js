@@ -1,14 +1,14 @@
 var scroll;
-/*********************************************
+/*=====================================*
  * WINDOW EVENTS
-/*********************************************/
+/*=====================================*/
 setTimeout(onWindowLoad, 3000);
 $(window)
     .on('load', onWindowLoad)
     .on('scroll', onWindowScroll)
-/*********************************************
+/*=====================================*
 * Actions
-/*********************************************/
+/*=====================================*/
 $(document)
     .ready(onDocumentReady)
     .on('click', '.backtop', function () {
@@ -18,9 +18,9 @@ $(document)
         $(this).toggleClass('open');
     })
 
-/***************************************************************************
+/*=====================================*
  * CURSOR 
- * *********************/
+/*=====================================*/
 $(document)
     .ready(function () {
         $(".project-wrapper .project-image").hover(function () {
@@ -40,9 +40,9 @@ $(document)
         }, 200);
     })
 
-/*********************************************
+/*=====================================*
  * FUNCTIONS
-/*********************************************/
+/*=====================================*/
 function onDocumentReady() {
     $("header").load("partial/header.html");
     // $("footer").load("partial/footer.html");
@@ -59,7 +59,7 @@ function preLoading() {
         opacity: 0, x: '100%', ease: 'circ', stagger: 0.1, duration: 0.5,
         onComplete: function () {
             if ($('body').hasClass('loaded')) {
-                $('#loading').fadeOut(function() {
+                $('#loading').fadeOut(function () {
                     $('body').addClass('ready');
                 });
                 preloadingTL.pause();
@@ -87,9 +87,13 @@ function onWindowLoad() {
 
     homePage();
 }
-
-
+/*=====================================*/
 function homePage() {
+    document.querySelector('.home-hero').addEventListener("mousemove", (e) => {
+        animateImages(e, '.shape');
+    });
+
+
     const marqueeElem = document.querySelectorAll(".marquee");
     const allMarquee = [];
     marqueeElem.forEach((elm, i) => {
@@ -126,7 +130,7 @@ function onWindowScroll() {
     }
     headerTheme();
 }
-/*********************************************/
+/*=====================================*/
 function headerTheme() {
     $('header').removeClass('dark');
     let scroll = $(window).scrollTop() + $('header').height();
@@ -140,93 +144,35 @@ function headerTheme() {
         }
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Array of image URLs
-const imageUrls = [
-    'https://via.placeholder.com/300/FF5733/FFFFFF?text=Image+1',
-    'https://via.placeholder.com/200/33FF57/FFFFFF?text=Image+2',
-    'https://via.placeholder.com/500/3357FF/FFFFFF?text=Image+3',
-    'https://via.placeholder.com/700/57FF33/FFFFFF?text=Image+4',
-    'https://via.placeholder.com/300/FF3357/FFFFFF?text=Image+5'
-];
-
-// Array to hold preloaded images
-const preloadedImages = [];
-
-// Function to preload images
-function preloadImages(urls) {
-    for (let i = 0; i < urls.length; i++) {
-        const img = new Image();
-        img.src = urls[i];
-        preloadedImages.push(img);
-    }
+const animateImages = (event, el, limit = 100) => {
+    document.querySelectorAll(el).forEach((el) => {
+        let xPos = event.clientX / window.innerWidth - 0.5,
+            yPos = event.clientY / window.innerHeight - 0.5;
+        gsap.to(el, 0.5, {
+            y: xPos * limit,
+            x: yPos * limit,
+            ease: 'none'
+        })
+    })
+}
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
 }
 
-// Preload images
-preloadImages(imageUrls);
-
-// Get the image element
-const imageElement = document.getElementById('randomImage');
-
-// Function to get a random preloaded image
-function getRandomImage() {
-    const randomIndex = Math.floor(Math.random() * preloadedImages.length);
-    return preloadedImages[randomIndex].src;
-}
-
-// Function to update the image source
-function updateImage() {
-    imageElement.src = getRandomImage();
-}
-
-// Update image every 2 seconds
-setInterval(updateImage, 300);
-
-// Initialize with the first image
-updateImage();
-
-/*********************************************/
-// allMarquee[i].x = 0;
-// play();
-// elm.addEventListener('mouseenter', () => pause());
-// elm.addEventListener('mouseleave', () => play());
-// function play() {
-//     allMarquee.forEach((m, i) => {
-//         m.x -= (0.5 * (i + 0.1));
-//         m.settle(m.x);
-//         // m.requestId = window.requestAnimationFrame(play);
-//     })
-// }
-// function pause(m) {
-//     if (m.requestId) {
-//         window.cancelAnimationFrame(m.requestId)
-//         m.requestId = undefined;
-//     }
-// }
-// function getRandomInt(max) {
-//     return Math.floor(Math.random() * max);
-// }
-
-// allMarquee[i] = new Flickity(elm, {
-//     accessibility: true,
-//     resize: true,
-//     wrapAround: true,
-//     prevNextButtons: false,
-//     pageDots: false,
-//     percentPosition: true,
-//     setGallerySize: true,
-// });
+// ProjectGallery
+var activeIndx = 0,
+    images = $('#projectGallery img'),
+    zIndx = 1,
+    pintr = setInterval(() => {
+        if ($('#projectGallery img.active').length == 3) {
+            images.removeClass('active');
+        }
+        images.eq(activeIndx).addClass('active').css('z-index', zIndx);
+        activeIndx = (activeIndx + 1) % images.length;
+        zIndx++;
+        if (zIndx == images.length) { zIndx = 1; }
+    }, getRandomArbitrary(100, 600));
+// End ProjectGallery

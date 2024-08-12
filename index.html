@@ -77,7 +77,11 @@
 
   <div data-scroll-container>
     <section data-scroll-section class="home-hero">
-      <div class="bg" style="background-image: url(assets/images/scape.jpg);"></div>
+      <div class="bg">
+        <div style="background-image: url(assets/images/scape.jpg);">
+          <div class="shape" style="background-image: url(assets/images/mountain.png);"></div>
+        </div>
+      </div>
       <div class="hero-wrapper">
         <div class="container">
           <div class="text-wrapper">
@@ -130,8 +134,18 @@
     <section data-scroll-section class="home-section projects">
       <div class="container">
         <div class="images-viewer">
-          <div id="imageContainer">
-            <img id="randomImage" src="" alt="Random Image">
+          <!-- <div id="imageContainer">
+              <img id="randomImage1" src="" alt="Random Image" class="active">
+              <img id="randomImage2" src="" alt="Random Image">
+              <img id="randomImage3" src="" alt="Random Image">
+          </div> -->
+          <div id="projectGallery">
+            <img src="assets/images/project-3.jpg" class="image active">
+            <img src="assets/images/project-2.jpg" class="image active">
+            <img src="assets/images/project-1.jpg" class="image active">
+            <img src="assets/images/scape.jpg" class="image">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnZqM3dxcnZ3cXJkeHVncHFzbXdycGlqdmxpazI3Y3N5NWRlcHB4MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6IzzHWll5Y4IU/giphy.webp" class="image">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2xqZ2JyNWltN2t1NHJwZWJiMmZuNHBmY2RpY2JmZXB6cmR3bXptbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9BzrkrC8KIuhtM1b0B/giphy.webp" class="image">
           </div>
         </div>
 
@@ -213,32 +227,32 @@
       </div>
 
       <div class="services-list">
-        <div>
+        <div data-scroll data-scroll-speed="0">
           <div class="container">
             <h3>Digital Marketing</h3>
           </div>
         </div>
-        <div>
+        <div data-scroll data-scroll-speed="2">
           <div class="container">
             <h3>Branding</h3>
           </div>
         </div>
-        <div>
+        <div data-scroll data-scroll-speed="3">
           <div class="container">
             <h3>Creativity</h3>
           </div>
         </div>
-        <div>
+        <div data-scroll data-scroll-speed="4">
           <div class="container">
             <h3>Events</h3>
           </div>
         </div>
-        <div>
+        <div data-scroll data-scroll-speed="5">
           <div class="container">
             <h3>Social Media</h3>
           </div>
         </div>
-        <div>
+        <div data-scroll data-scroll-speed="6">
           <div class="container">
             <h3>Advertising</h3>
           </div>
@@ -388,7 +402,7 @@
 
             <div class="navs-btns">
               <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">projects</a></li>
                 <li><a href="#">about</a></li>
                 <li><a href="#">blogs</a></li>

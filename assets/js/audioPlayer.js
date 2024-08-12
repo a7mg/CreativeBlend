@@ -26,6 +26,7 @@ function setProgress(elTarget) {
 for (let i of document.querySelectorAll(".aWrap")) {
     // (B) AUDIO + HTML SETUP + FLAGS
     i.audio = new Audio(encodeURI(i.dataset.src));
+    i.audio.load();
     (i.aPlay = i.querySelector(".aPlay")),
         (i.aPlayIco = i.querySelector(".aPlayIco")),
         (i.aNow = i.querySelector(".aNow")),
