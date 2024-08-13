@@ -14,7 +14,7 @@ $(document)
     .on('click', '.backtop', function () {
         $('html, body').animate({ scrollTop: 0 });
     })
-    .on('click', '.menu-btn', function () {
+    .on('click', 'header .menu-btn', function () {
         $(this).toggleClass('open');
         $('header').toggleClass('menu-opend');
     })
@@ -142,7 +142,7 @@ function homePage() {
             images.eq(activeIndx).addClass('active').css('z-index', zIndx);
             activeIndx = (activeIndx + 1) % images.length;
             zIndx++;
-            // if (zIndx == images.length) { zIndx = 1; }
+            if (zIndx == 99) { zIndx = 1; }
         }, 800);
     // End ProjectGallery
 
@@ -226,9 +226,9 @@ function homePage() {
     // End Projects section
 
     // Partners section
-    let partnersTl = gsap.timeline();
-    let splitpartnersHead = new SplitText(".partners .head-text", { type: "lines, words" });
-    partnersTl.staggerFrom(splitpartnersHead.lines, 0.8, { x: 200, autoAlpha: 0 }, 0.1);
+    // let partnersTl = gsap.timeline();
+    // let splitpartnersHead = new SplitText(".partners .head-text", { type: "lines, words" });
+    // partnersTl.staggerFrom(splitpartnersHead.lines, 0.8, { x: 200, autoAlpha: 0 }, 0.1);
 
     // const partnersMarquees = gsap.utils.toArray(".partners .marquee");
     // partnersMarquees.forEach((marquee) => {
@@ -239,12 +239,12 @@ function homePage() {
     //     }
     // })
     // partnersTl.from('.partners .marquee', 0.5, { xPercent: 100 }, 0.5);
-    ScrollTrigger.create({
-        trigger: ".partners",
-        start: "top 30%",
-        toggleActions: "restart pause resume reset",
-        animation: partnersTl.play()
-    })
+    // ScrollTrigger.create({
+    //     trigger: ".partners",
+    //     start: "top 30%",
+    //     toggleActions: "restart pause resume reset",
+    //     animation: partnersTl.play()
+    // })
 }
 /*=====================================*/
 function onWindowScroll() {
