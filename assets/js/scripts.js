@@ -1,4 +1,4 @@
-var scroll;
+var scroller;
 /*=====================================*
  * WINDOW EVENTS
 /*=====================================*/
@@ -16,6 +16,15 @@ $(document)
     })
     .on('click', '.menu-btn', function () {
         $(this).toggleClass('open');
+        $('header').toggleClass('menu-opend');
+    })
+    .on('click', '.hero-bottom .play-btn', function () {
+        $('.popup').addClass('active');
+        $('.hero-bottom').fadeOut();
+    })
+    .on('click', '.popup .close', function () {
+        $('.popup').removeClass('active');
+        $('.hero-bottom').fadeIn();
     })
 
 /*=====================================*
@@ -69,59 +78,175 @@ function preLoading() {
 }
 
 function initScroll() {
-    scroll = new LocomotiveScroll({
+    scroller = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
         lerp: 0.05
     });
-    scroll.update();
-    scroll.on('scroll', (event) => {
-        // event.scroll.y
+    scroller.update();
+    scroller.on('scroll', (event) => {
+        // event.scroller.y
         headerTheme();
+        ScrollTrigger.update();
     });
+    ScrollTrigger.scrollerProxy(
+        '#html', {
+        scrollTop(value) {
+            // if (scroller.scroll.instance.scroll.y > 100) {
+            //     $('.navbar').addClass('navbar-has-background');
+            //     $('#top-btn').css('display', 'block')
+            // } else {
+            //     $('.navbar').removeClass('navbar-has-background');
+            //     $('#top-btn').css('display', 'none')
+            // }
+            return arguments.length ?
+                scroller.scrollTo(value, 0, 0) :
+                scroller.scroll.instance.scroll.y
+        },
+        getBoundingClientRect() {
+            return {
+                left: 0,
+                top: 0,
+                width: window.innerWidth,
+                height: window.innerHeight
+            }
+        },
+    })
+    ScrollTrigger.addEventListener("refresh", () => scroller.update());
+    ScrollTrigger.refresh();
 }
 
 function onWindowLoad() {
     $('body').addClass('loaded');
-    scroll.update();
-
+    // Pages
     homePage();
+    // 
+    scroller.update();
 }
 /*=====================================*/
+const allMarquee = [];
 function homePage() {
     document.querySelector('.home-hero').addEventListener("mousemove", (e) => {
         animateImages(e, '.shape');
     });
 
+    // ProjectGallery
+    var activeIndx = 0,
+        images = $('#projectGallery img'),
+        zIndx = 1,
+        time = 800,
+        pintr = setInterval(() => {
+            if ($('#projectGallery img.active').length == 3) {
+                images.removeClass('active');
+            }
+            images.eq(activeIndx).addClass('active').css('z-index', zIndx);
+            activeIndx = (activeIndx + 1) % images.length;
+            zIndx++;
+            // if (zIndx == images.length) { zIndx = 1; }
+        }, 800);
+    // End ProjectGallery
 
-    const marqueeElem = document.querySelectorAll(".marquee");
-    const allMarquee = [];
-    marqueeElem.forEach((elm, i) => {
-        allMarquee[i] = new Flickity(elm, {
-            accessibility: true,
-            resize: true,
-            wrapAround: true,
-            prevNextButtons: false,
-            pageDots: false,
-            percentPosition: true,
-            // setGallerySize: true,
-            autoPlay: $(elm).data('speed') || 3000,
-            pauseAutoPlayOnHover: true,
-            selectedAttraction: 0.001,
-            // friction: 0.9,
-            rightToLeft: $(elm).hasClass('right')
+    var sliderOpt = {
+        accessibility: true,
+        wrapAround: true,
+        setGallerySize: true,
+        // ImagesLoaded: true,
+        resize: true,
+        prevNextButtons: false,
+        pageDots: false,
+        pauseAutoPlayOnHover: true,
+        percentPosition: true,
+        selectedAttraction: 0.001,
+        // friction: 0.9,
+    }
+    $('.partners .marquee-wrapper').each((i, n) => {
+        var options = { ...sliderOpt };
+        options.setGallerySize = false;
+        options.rightToLeft = $(n).hasClass('right');
+        options.autoPlay = 3000;
+        allMarquee[i] = $(n).flickity(options)
+    })
+    $('footer .marquee').each((i, n) => {
+        sliderOpt.autoPlay = 5000;
+        allMarquee[i] = $(n).flickity(sliderOpt)
+    })
+
+    // Our value section
+    let valueTl = gsap.timeline();
+    let splitValueLines = new SplitText(".our-value .content p", { type: "lines, words" });
+    valueTl.fromTo('.our-value .title .border', 0.8, { width: 0, opacity: 0 },
+        { width: '100%', opacity: 1 }, 0);
+    valueTl.fromTo('.our-value .title h2', 0.5, { y: '100%', opacity: 0 }, { y: 0, opacity: 1 });
+    valueTl.staggerFrom(splitValueLines.lines, 0.8, { x: 100, autoAlpha: 0 }, 0.1);
+    ScrollTrigger.create({
+        trigger: ".our-value",
+        start: "top 70%",
+        toggleActions: "restart pause resume reset",
+        animation: valueTl.play()
+    })
+    // End Our value section
+
+    // Projects section
+    // gsap.fromTo('.projects .title', 0.5, { width: 0, opacity: 0 }, {
+    //     width: '100%', opacity: 1,
+    //     scrollTrigger: {
+    //         start: "top 50%",
+    //         toggleActions: "restart pause resume reset",
+    //         trigger: '.projects .featured'
+    //     }
+    // });
+    const featuredProject = gsap.utils.toArray(".projects .project-image");
+    featuredProject.forEach((project) => {
+        gsap.fromTo(project, .8, { xPercent: -100, ease: Power2.out }, {
+            xPercent: 0, scrollTrigger: {
+                start: "top 60%",
+                toggleActions: "restart pause resume reset",
+                trigger: project
+            }
+        })
+        gsap.fromTo(project.children, .8, { xPercent: 100, scale: 1.3, delay: -.8, ease: Power2.out }, {
+            xPercent: 0, scale: 1, scrollTrigger: {
+                start: "top 60%",
+                toggleActions: "restart pause resume reset",
+                trigger: project
+            }
         });
+        // gsap.fromTo(project, {
+        //     'clip-path': 'inset(10% 20% 0 20% round 4px)'
+        // }, {
+        //     'clip-path': 'inset(0% 0% round 4px)',
+        //     scrollTrigger: {
+        //         markers: true,
+        //         start: "top 50%",
+        //         toggleActions: "restart pause resume reset",
+        //         trigger: project
+        //     }
+        // });
+    });
+    // End Projects section
+
+    // Partners section
+    let partnersTl = gsap.timeline();
+    let splitpartnersHead = new SplitText(".partners .head-text", { type: "lines, words" });
+    partnersTl.staggerFrom(splitpartnersHead.lines, 0.8, { x: 200, autoAlpha: 0 }, 0.1);
+
+    // const partnersMarquees = gsap.utils.toArray(".partners .marquee");
+    // partnersMarquees.forEach((marquee) => {
+    //     if ($(marquee).find('.marquee-wrapper').hasClass('right')) {
+    //         partnersTl.fromTo(marquee, 0.5, { xPercent: -100 }, { xPercent: 0 }, 0);
+    //     } else {
+    //         partnersTl.fromTo(marquee, 0.5, { xPercent: 100 }, { xPercent: 0 }, 0);
+    //     }
+    // })
+    // partnersTl.from('.partners .marquee', 0.5, { xPercent: 100 }, 0.5);
+    ScrollTrigger.create({
+        trigger: ".partners",
+        start: "top 30%",
+        toggleActions: "restart pause resume reset",
+        animation: partnersTl.play()
     })
 }
-
-$.fn.isInViewport = function () {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom > viewportTop && elementTop < viewportBottom;
-};
-
+/*=====================================*/
 function onWindowScroll() {
     if ($(window).scrollTop() > $(window).height() / 2) {
         $(".backtop").addClass('show');
@@ -161,18 +286,10 @@ function getRandomInt(max) {
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
-
-// ProjectGallery
-var activeIndx = 0,
-    images = $('#projectGallery img'),
-    zIndx = 1,
-    pintr = setInterval(() => {
-        if ($('#projectGallery img.active').length == 3) {
-            images.removeClass('active');
-        }
-        images.eq(activeIndx).addClass('active').css('z-index', zIndx);
-        activeIndx = (activeIndx + 1) % images.length;
-        zIndx++;
-        if (zIndx == images.length) { zIndx = 1; }
-    }, getRandomArbitrary(100, 600));
-// End ProjectGallery
+$.fn.isInViewport = function () {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+};

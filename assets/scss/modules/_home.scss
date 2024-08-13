@@ -320,6 +320,7 @@
         .projects-list {
             .project-item {
                 display: flex;
+                overflow: hidden;
                 & + .project-item {
                     margin-top: rem(150);
                 }
@@ -328,6 +329,7 @@
                     color: #fff;
                     position: relative;
                     cursor: pointer;
+                    transition: none;
                 }
                 .poject-info {
                     white-space: nowrap;
@@ -520,6 +522,12 @@
         }
         .marquee {
             padding: rem(30) 0;
+            .marquee-wrapper {
+                height: rem(110);
+                @media (max-width: 580px) {
+                    height: 55px;
+                }
+            }
             .flickity-slider {
                 display: flex;
                 align-items: center;

@@ -3,7 +3,7 @@ header {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 999999;
   color: #fff;
   font-size: rem(16);
   font-family: $fontLight;
@@ -12,14 +12,16 @@ header {
     display: flex;
     justify-content: space-between;
     @media (max-width: 580px) {
-        align-items: center;
+      align-items: center;
     }
   }
   .logo-container {
+    position: relative;
+    z-index: 9999999;
     img {
       height: rem(30);
       @media (max-width: 580px) {
-          height: 15px;
+        height: 15px;
       }
       &.black {
         display: none;
@@ -32,7 +34,7 @@ header {
       color: $primary !important;
     }
   }
-  &.dark {
+  &.dark:not(.menu-opend) {
     color: #000;
     img {
       &.black {
@@ -45,22 +47,36 @@ header {
     a {
       color: #212121;
     }
+    .menu-btn i {
+      background-color: #000;
+    }
+  }
+
+  &.menu-opend {
+    .navs-menu {
+      transform: translateX(0);
+    }
   }
 }
 
-.navs-btns {
+.mob-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 9999999;
+  @media (min-width: 768px) {
+    display: none !important;
+  }
+}
+.navs-menu {
   display: flex;
   justify-content: end;
-  @media (max-width: 767px) {
-    align-items: center;
-  }
   ul {
     padding: 0;
     margin: 0;
     list-style: none;
-    margin-#{$right}: rem(50);
-    @media (max-width: 767px) {
-      display: none;
+    @media (min-width: 768px) {
+      margin-#{$right}: rem(50);
     }
     a {
       padding: rem(3) 0;
@@ -84,11 +100,47 @@ header {
       }
     }
   }
+  @media (max-width: 767px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background-color: #000;
+    color: #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) all 0.4s;
+    transform: translateX(-100%);
+    > a {
+      display: none;
+    }
+    ul {
+      margin: auto;
+      a {
+        color: #fff !important;
+        font-size: 25px;
+        text-align: center;
+        padding: 10px 0;
+        &:hover {
+          color: $primary !important;
+        }
+        &.active:before {
+          border-width: 8px;
+        }
+      }
+    }
+    .lang-toggle {
+      font-size: 25px;
+    }
+  }
 }
 .lang-toggle {
-  margin-#{$left}: rem(35);
-  @media (max-width: 767px) {
-    display: none;
+  @media (min-width: 768px) {
+    margin-#{$left}: rem(35);
   }
   a:not(.active) {
     color: #7e7e7e;
@@ -101,9 +153,6 @@ header {
   outline: none;
   cursor: pointer;
   vertical-align: middle;
-  @media (min-width: 768px) {
-    display: none;
-  }
   > i {
     display: block;
     width: 18px;
@@ -111,9 +160,6 @@ header {
     margin: 7px auto;
     background-color: #fff;
     transition: all linear 0.2s;
-    .dark & {
-      background-color: #000;
-    }
   }
 
   &.open {
@@ -215,7 +261,9 @@ header {
     }
   }
 }
-
+.dark-bg {
+  background-color: #000;
+}
 footer {
   .footer-top {
     padding: rem(100) 0;
@@ -326,6 +374,75 @@ footer {
     flex: 1;
     @media (max-width: 580px) {
       width: 100%;
+    }
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10vh 10vw;
+  z-index: 999999;
+  background-color: rgba(#000, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease 0.3s;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    .pop-content video {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  .pop-content {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    video {
+      margin: auto;
+      width: auto;
+      height: 5000px;
+      max-width: 100%;
+      max-height: 100%;
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all ease 0.3s;
+      transition-delay: 0.4s;
+    }
+  }
+  @media (max-width: 1200px) {
+    padding: 15px;
+    .pop-content {
+      video {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .close {
+    position: absolute;
+    top: rem(30);
+    #{$right}: rem(15);
+    z-index: 11;
+    display: block;
+    > i {
+      &:first-child {
+        transform: translateY(4px) rotateZ(-45deg);
+      }
+      &:last-child {
+        transform: translateY(-4px) rotateZ(45deg);
+      }
+    }
+    i {
+      width: rem(50);
+      height: 2px;
     }
   }
 }
