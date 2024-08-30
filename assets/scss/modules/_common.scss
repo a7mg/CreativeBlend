@@ -39,6 +39,7 @@ body {
   margin: 0;
   text-transform: uppercase;
   cursor: url(#{$imgPath}/icons/cursor.svg), auto;
+  cursor: image-set(url(#{$imgPath}/icons/cursor.svg) 1.5x), auto;
   overflow-x: hidden;
 }
 .container {
@@ -76,6 +77,7 @@ h4,
 h5,
 h6 {
   font-family: $fontBold;
+  font-weight: normal;
 }
 
 button:focus {
@@ -172,6 +174,11 @@ button:focus {
     }
     &:hover {
       color: $primary !important;
+    }
+  }
+  .dark-header & {
+    .btn {
+      color: #000;
     }
   }
 }

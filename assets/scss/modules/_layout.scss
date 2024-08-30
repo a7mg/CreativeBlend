@@ -1,3 +1,5 @@
+@import "audioPlayer";
+
 header {
   position: fixed;
   width: 100%;
@@ -192,14 +194,14 @@ header {
     height: rem(50);
     position: relative;
     max-width: 75%;
-    #logoIconGroub {
-      // transform: translateX(43%);
-    }
-    #logoLettersGroub {
-      rect {
-        // opacity: 0;
-      }
-    }
+    // #logoIconGroub {
+    //   // transform: translateX(43%);
+    // }
+    // #logoLettersGroub {
+    //   rect {
+    //     // opacity: 0;
+    //   }
+    // }
   }
 }
 .backtop {
@@ -221,10 +223,10 @@ header {
     opacity: 1;
     visibility: visible;
   }
-  &:hover {
-    // background-color: $lightBlue;
-    // color: $darkBlue;
-  }
+  // &:hover {
+  //   // background-color: $lightBlue;
+  //   // color: $darkBlue;
+  // }
 }
 .cursor {
   color: #abaaaa;
@@ -374,6 +376,29 @@ footer {
     flex: 1;
     @media (max-width: 580px) {
       width: 100%;
+    }
+  }
+  .social {
+    margin: 0;
+    padding: rem(50) 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    li {
+      & + li {
+        margin-#{$left}: rem(20);
+      }
+      img {
+        width: rem(45);
+      }
+      a {
+        display: block;
+        &.x {
+          img {
+            width: rem(30);
+          }
+        }
+      }
     }
   }
 }
