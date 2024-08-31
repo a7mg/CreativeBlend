@@ -265,6 +265,9 @@ header {
       transform: scale(1) rotate(0);
     }
   }
+  @media (max-width: 992px) {
+    display: none;
+  }
 }
 .dark-bg {
   background-color: #000;
