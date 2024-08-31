@@ -13,6 +13,13 @@ var marqueeOpt = {
     selectedAttraction: 0.001,
     // friction: 0.9,
 }
+
+
+var lang = localStorage.getItem('language') || 'en';
+// $('html').attr('dir', lang == 'en' ? 'ltr' : 'rtl').attr('lang', lang);
+// setTimeout(() => {
+//     $('.lang-btn').text(lang == 'ar' ? 'En' : 'عربي');
+// }, 100);
 /*=====================================*
  * WINDOW EVENTS
 /*=====================================*/
@@ -25,6 +32,12 @@ $(window)
 /*=====================================*/
 $(document)
     .ready(onDocumentReady)
+    .on('click', function(e) {
+        $('.country-list ul').removeClass('active');
+    })
+    .on('click', '.country-list .current', function(e) {
+        e.stopPropagation();
+    })
     .on('click', '.backtop', function () {
         $('html, body').animate({ scrollTop: 0 });
     })
@@ -39,6 +52,9 @@ $(document)
     .on('click', '.popup .close', function () {
         $('.popup').removeClass('active');
         $('.hero-bottom').fadeIn();
+    })
+    .on('click', '.country-list .current', function() {
+        $(this).next('ul').toggleClass('active');
     })
 
 /*=====================================*
@@ -68,7 +84,7 @@ $(document)
 /*=====================================*/
 function onDocumentReady() {
     $("header").load("partial/header.html");
-    // $("footer").load("partial/footer.html");
+    $("footer").load("partial/footer.html");
     gsap.config({ nullTargetWarn: false });
     gsap.registerPlugin(SplitText, ScrollTrigger);
     preLoading()
@@ -76,10 +92,10 @@ function onDocumentReady() {
 }
 
 function preLoading() {
-    $('#loading').fadeOut(function () {
-        $('body').addClass('ready');
-    });
-    return
+    // $('#loading').fadeOut(function () {
+    //     $('body').addClass('ready');
+    // });
+    // return
     var preloadingTL = gsap.timeline({ repeat: -1, repeatDelay: 2 });
     preloadingTL.fromTo('#logoIconGroub', { opacity: 0, x: '100%' }, { opacity: 1, x: 0 })
     preloadingTL.from('#logoLettersGroub path, #logoLettersGroub rect', {
@@ -155,7 +171,9 @@ function onWindowScroll() {
 }
 
 function global() {
+    headerTheme();
     projectsGallery();
+    audioPlayer();
     $('footer .marquee').each((i, n) => {
         marqueeOpt.autoPlay = 5000;
         allMarquee[i] = $(n).flickity(marqueeOpt)
@@ -195,11 +213,10 @@ function homePage() {
 
     // Our value section
     let valueTl = gsap.timeline();
+    valueTl.fromTo('.our-value .section-title .border', 0.8, { width: 0, opacity: 0 }, { width: '100%', opacity: 1 }, 0);
+    valueTl.fromTo('.our-value .section-title h2', 0.5, { y: '100%', opacity: 0 }, { y: 0, opacity: 1 });
     let splitValueLines = new SplitText(".our-value .content p", { type: "lines, words" });
-    valueTl.fromTo('.our-value .title .border', 0.8, { width: 0, opacity: 0 },
-        { width: '100%', opacity: 1 }, 0);
-    valueTl.fromTo('.our-value .title h2', 0.5, { y: '100%', opacity: 0 }, { y: 0, opacity: 1 });
-    valueTl.staggerFrom(splitValueLines.lines, 0.8, { x: 100, autoAlpha: 0 }, 0.1);
+    valueTl.staggerFrom(splitValueLines.lines, 0.8, { x: 100, autoAlpha: 0 }, 0.1, 0.5);
     ScrollTrigger.create({
         trigger: ".our-value",
         start: "top 70%",
@@ -209,7 +226,7 @@ function homePage() {
     // End Our value section
 
     // Projects section
-    // gsap.fromTo('.projects .title', 0.5, { width: 0, opacity: 0 }, {
+    // gsap.fromTo('.projects .section-title', 0.5, { width: 0, opacity: 0 }, {
     //     width: '100%', opacity: 1,
     //     scrollTrigger: {
     //         start: "top 50%",

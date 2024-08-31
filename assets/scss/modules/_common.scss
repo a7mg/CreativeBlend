@@ -17,9 +17,9 @@ html {
   // @media (max-width: 992px) {
   //   font-size: 10px;
   // }
-  // @media (max-width: 560px) {
-  //   font-size: 10px;
-  // }
+  @media (max-width: 560px) {
+    font-size: 12px;
+  }
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -146,7 +146,17 @@ button:focus {
 .yellow {
   color: $primary;
 }
+.gray {
+  color: #6A6A6A;
+}
 .base-fit {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
   video,
   img {
     position: absolute;
@@ -181,4 +191,52 @@ button:focus {
       color: #000;
     }
   }
+}
+
+.f {
+  display: flex;
+}
+
+.f-c {
+  flex-direction: column;
+}
+
+.f-w {
+  flex-wrap: wrap;
+}
+
+.s-b {
+  justify-content: space-between;
+}
+
+.s-a {
+  justify-content: space-around;
+}
+
+.j-e {
+  justify-content: flex-end;
+}
+
+.j-c {
+  justify-content: center;
+}
+
+.a-c {
+  align-items: center;
+}
+
+.a-e {
+  align-items: flex-end;
+}
+
+.a-b {
+  align-items: baseline;
+}
+
+.a-s {
+  align-items: flex-start;
+}
+
+.w-100 {
+  width: 100%;
 }

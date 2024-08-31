@@ -145,7 +145,10 @@ header {
     margin-#{$left}: rem(35);
   }
   a:not(.active) {
-    color: #7e7e7e;
+    color: #7e7e7e !important;
+    &:hover {
+      color: $primary !important;
+    }
   }
 }
 .menu-btn {
@@ -342,34 +345,74 @@ footer {
   .footer-bottom {
     padding: rem(50) 0;
     background-color: $primary;
+    @media (max-width: 767px) {
+      padding: rem(30) 0;
+    }
   }
   .content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media (max-width: 992px) {
-      flex-direction: column;
-      .country-list {
-        margin-bottom: rem(30);
-      }
-    }
   }
   .country-list {
-    display: flex;
-    align-items: center;
-    gap: rem(20);
+    position: relative;
+    margin-#{$right}: rem(40);
     @media (min-width: 993px) {
       min-width: 50%;
     }
-    a:not(.active) {
-      opacity: 0.3;
-      &:hover {
-        opacity: 0.8;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      list-style: none;
+      @media (min-width: 768px) {
+        li + li {
+          margin-#{$left}: rem(20);
+        }
+      }
+    }
+    @media (min-width: 768px) {
+      a:not(.active) {
+        opacity: 0.3;
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
     img {
       display: block;
       height: rem(25);
+    }
+    .current {
+      display: none;
+      font-size: rem(27);
+      font-family: $fontThin;
+      img {
+        margin-#{$right}: rem(5);
+      }
+    }
+    @media (max-width: 767px) {
+      .current {
+        display: flex;
+        align-items: center;
+      }
+      ul {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 0;
+        z-index: 5;
+        display: none;
+        background-color: #FFF;
+        padding: rem(10);
+        box-shadow: 0 0 10px rgba(#000, 0.1);
+        li + li {
+          margin-top: rem(10);
+        }
+        &.active {
+          display: block;
+        }
+      }
     }
   }
   .audio {
