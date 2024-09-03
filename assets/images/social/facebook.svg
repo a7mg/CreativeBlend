@@ -1,7 +1,18 @@
-<svg id="Group_40730" data-name="Group 40730" xmlns="http://www.w3.org/2000/svg" width="42.146" height="52" viewBox="0 0 42.146 52">
-  <g id="Ellipse_508" data-name="Ellipse 508" transform="translate(0 0)" fill="none" stroke="#000" stroke-width="1">
-    <ellipse cx="21.073" cy="21.073" rx="21.073" ry="21.073" stroke="none"/>
-    <ellipse cx="21.073" cy="21.073" rx="20.573" ry="20.573" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42.146" height="42.146" viewBox="0 0 42.146 42.146">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_4951" data-name="Rectangle 4951" width="15.681" height="30"/>
+    </clipPath>
+  </defs>
+  <g id="Group_40788" data-name="Group 40788" transform="translate(-1183 -11167)">
+    <g id="Ellipse_508" data-name="Ellipse 508" transform="translate(1183 11167)" fill="none" stroke="#000" stroke-width="1">
+      <ellipse cx="21.073" cy="21.073" rx="21.073" ry="21.073" stroke="none"/>
+      <ellipse cx="21.073" cy="21.073" rx="20.573" ry="20.573" fill="none"/>
+    </g>
+    <g id="Group_40780" data-name="Group 40780" transform="translate(1195.073 11178.352)">
+      <g id="Group_40779" data-name="Group 40779" clip-path="url(#clip-path)">
+        <path id="Path_17605" data-name="Path 17605" d="M10.227,30V16.363h4.646l.622-5.455H10.214V7.578c0-1.544.429-2.6,2.643-2.6h2.824V.21A37.187,37.187,0,0,0,11.591,0C7.519,0,4.773,2.485,4.773,7.049v3.86H0v5.454H4.773V30Z" fill-rule="evenodd"/>
+      </g>
+    </g>
   </g>
-  <text id="f" transform="translate(13.019 42)" font-size="38" font-family="SegoeUI, Segoe UI" letter-spacing="0.08em"><tspan x="0" y="0">f</tspan></text>
 </svg>

@@ -54,6 +54,18 @@ header {
     }
   }
 
+  .icon {
+    display: none;
+  }
+  &.header-icon {
+    .logo {
+      display: none;
+    }
+    .icon {
+      display: block;
+    }
+  }
+
   &.menu-opend {
     .navs-menu {
       transform: translateX(0);
@@ -273,6 +285,7 @@ header {
   background-color: #000;
 }
 footer {
+  cursor: auto;
   .footer-top {
     padding: rem(100) 0;
     @media (min-width: 993px) {
