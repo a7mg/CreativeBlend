@@ -196,6 +196,40 @@ function global() {
         marqueeOpt.autoPlay = 5000;
         allMarquee[i] = $(n).flickity(marqueeOpt)
     })
+    
+    // Our value section
+    let valueTl = gsap.timeline();
+    valueTl.fromTo('.our-value .section-title .border', 0.8, { width: 0, opacity: 0 }, { width: '100%', opacity: 1 }, 0);
+    valueTl.fromTo('.our-value .section-title h2', 0.5, { y: '100%', opacity: 0 }, { y: 0, opacity: 1 });
+    let splitValueLines = new SplitText(".our-value .content p", { type: "lines, words" });
+    valueTl.staggerFrom(splitValueLines.lines, 0.8, { x: 100, autoAlpha: 0 }, 0.1, 0.5);
+    ScrollTrigger.create({
+        trigger: ".our-value",
+        start: "top 70%",
+        toggleActions: "restart pause resume reset",
+        animation: valueTl.play()
+    })
+    // End Our value section
+
+    $('.partners .marquee-wrapper').each((i, n) => {
+        var options = { ...marqueeOpt };
+        options.setGallerySize = false;
+        options.rightToLeft = $(n).hasClass('right');
+        options.autoPlay = 3000;
+        allMarquee[i] = $(n).flickity(options)
+    })
+
+    teamSlider();
+}
+
+function teamSlider() {
+    $('.team-slider').flickity({
+        cellAlign: 'left',
+        contain: true,
+        // freeScroll: true,
+        prevNextButtons: false,
+        pageDots: false,
+    });
 }
 
 function projectsGallery() {
@@ -220,28 +254,6 @@ function homePage() {
     document.querySelector('.home-hero').addEventListener("mousemove", (e) => {
         animateImages(e, '.shape');
     });
-
-    $('.partners .marquee-wrapper').each((i, n) => {
-        var options = { ...marqueeOpt };
-        options.setGallerySize = false;
-        options.rightToLeft = $(n).hasClass('right');
-        options.autoPlay = 3000;
-        allMarquee[i] = $(n).flickity(options)
-    })
-
-    // Our value section
-    let valueTl = gsap.timeline();
-    valueTl.fromTo('.our-value .section-title .border', 0.8, { width: 0, opacity: 0 }, { width: '100%', opacity: 1 }, 0);
-    valueTl.fromTo('.our-value .section-title h2', 0.5, { y: '100%', opacity: 0 }, { y: 0, opacity: 1 });
-    let splitValueLines = new SplitText(".our-value .content p", { type: "lines, words" });
-    valueTl.staggerFrom(splitValueLines.lines, 0.8, { x: 100, autoAlpha: 0 }, 0.1, 0.5);
-    ScrollTrigger.create({
-        trigger: ".our-value",
-        start: "top 70%",
-        toggleActions: "restart pause resume reset",
-        animation: valueTl.play()
-    })
-    // End Our value section
 
     // Projects section
     // gsap.fromTo('.projects .section-title', 0.5, { width: 0, opacity: 0 }, {

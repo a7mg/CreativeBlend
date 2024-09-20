@@ -188,6 +188,7 @@
 }
 
 .section-title {
+    h1,
     h2 {
         font-size: rem(16);
         font-family: $fontLight;
@@ -229,9 +230,11 @@
         background-color: #000;
     }
     padding-top: rem(200);
+    padding-bottom: rem(200);
     overflow: hidden;
     @media (max-width: 767px) {
         padding-top: rem(100);
+        padding-bottom: rem(100);
     }
     .head-text {
         font-size: rem(70);
@@ -239,8 +242,8 @@
         font-family: $fontLight;
         margin-bottom: rem(50);
         @media (max-width: 580px) {
-            font-size: 25px;
-            line-height: 35px;
+            font-size: 35px;
+            line-height: 45px;
         }
     }
     &.our-value {
@@ -423,6 +426,7 @@
             align-items: center;
             gap: rem(12);
             margin-bottom: rem(35);
+            h1,
             h2 {
                 font-size: rem(40);
                 @media (max-width: 580px) {
@@ -444,11 +448,13 @@
             }
         }
         .services-list {
-            > div {
+            > a {
                 padding: 4vw 15px;
                 line-height: 1;
                 position: relative;
                 z-index: 1;
+                display: block;
+                color: #000;
                 @media (min-width: 581px) {
                     padding: 2vw rem(30);
                 }
@@ -457,7 +463,7 @@
                         margin-top: #{($i * 0.5) * -1}vw;
                     }
                 }
-                & + div {
+                & + a {
                     margin-top: -2vw;
                     // margin-top: rem(-70);
                     @media (max-width: 992px) {
@@ -558,47 +564,6 @@
             @media (max-width: 767px) {
                 gap: 4%;
             }
-            .team-item {
-                min-width: rem(410);
-                width: rem(410);
-                max-width: 100%;
-                margin-bottom: rem(40);
-                @media (max-width: 767px) {
-                    min-width: 48%;
-                    width: 48%;
-                }
-                .img-container {
-                    position: relative;
-                    overflow: hidden;
-                    &:before {
-                        content: "";
-                        padding: 45% 50%;
-                        display: block;
-                    }
-                    img {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                }
-                h4 {
-                    font-weight: normal;
-                    font-size: rem(25);
-                    font-family: $fontLight;
-                    line-height: 1.2;
-                    margin: rem(10) 0 rem(3);
-                }
-                h5 {
-                    font-weight: normal;
-                    font-size: rem(16);
-                    font-family: $fontLight;
-                    line-height: 1.2;
-                    margin: 0;
-                }
-            }
             .btn {
                 display: flex;
                 align-items: center;
@@ -617,6 +582,61 @@
                     color: #fff;
                     font-family: $fontMedium;
                     font-size: rem(18);
+                }
+            }
+        }
+        .team-item {
+            min-width: rem(410);
+            width: rem(410);
+            max-width: 100%;
+            margin-bottom: rem(40);
+            @media (max-width: 767px) {
+                min-width: 48%;
+                width: 48%;
+            }
+            .img-container {
+                position: relative;
+                overflow: hidden;
+                &:before {
+                    content: "";
+                    padding-top: calc((355 / 412) * 100%);
+                    display: block;
+                }
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            h4 {
+                font-weight: normal;
+                font-size: rem(25);
+                font-family: $fontLight;
+                line-height: 1.2;
+                margin: rem(10) 0 rem(3);
+            }
+            h5 {
+                font-weight: normal;
+                font-size: rem(16);
+                font-family: $fontLight;
+                line-height: 1.2;
+                margin: 0;
+            }
+        }
+        .team-slider {
+            .team-item {
+                width: calc(100% / 3.5);
+                padding-#{$left}: rem(50);
+                .img-container::before {
+                    padding-top: calc((695 / 495) * 100%);
+                }
+                @media (max-width: 767px) {
+                    padding-#{$left}: rem(15);
+                    min-width: 60%;
+                    width: 60%;
                 }
             }
         }
@@ -859,6 +879,7 @@
         }
         .section-title {
             margin-bottom: rem(40);
+            h1,
             h2 {
                 font-size: rem(35);
             }
@@ -922,6 +943,7 @@
         }
         .section-title {
             margin-bottom: rem(55);
+            h1,
             h2 {
                 font-size: rem(16);
                 margin: 0;
@@ -1118,6 +1140,122 @@
         padding: rem(50) 0;
         a {
             width: auto;
+        }
+    }
+}
+
+.service-details {
+    .service-text {
+        padding-bottom: rem(130);
+        @media (max-width: 767px) {
+            padding: rem(150) 0;
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            .content {
+                width: rem(725);
+                max-width: 100%;
+                p {
+                    font-family: $fontLight;
+                    font-size: rem(35);
+                    line-height: calc(45 / 35);
+                    margin: 0;
+                }
+            }
+            @media (max-width: 992px) {
+                flex-direction: column;
+            }
+        }
+    }
+    .related-projects {
+        padding: rem(70) 0;
+        .section-title {
+            margin-bottom: rem(40);
+        }
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 rem(-10);
+            > div {
+                width: 25%;
+                padding: rem(10);
+                @media (max-width: 992px) {
+                    width: 50%;
+                }
+                .base-fit {
+                    overflow: hidden;
+                    display: block;
+                    &::before {
+                        padding-top: calc((300 / 433) * 100%);
+                    }
+                    img {
+                        transition: transform ease 0.5s;
+                    }
+                    &:hover {
+                        img {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+        .video-full {
+            width: rem(1340);
+            max-width: 100%;
+            margin: auto;
+        }
+    }
+    .contact {
+        .head-text {
+            margin-bottom: rem(150);
+            @media (max-width: 767px) {
+                margin-bottom: rem(50);
+            }
+        }
+    }
+}
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .form-group {
+        margin-bottom: 5%;
+        &:not(.full) {
+            width: 48%;
+            @media (max-width: 767px) {
+                width: 100%;
+            }
+        }
+        &.full {
+            width: 100%;
+        }
+    }
+    .section-btn-wrapper {
+        margin: auto;
+    }
+    input,
+    textarea,
+    select {
+        padding: rem(50) rem(10);
+        font-size: rem(25);
+        font-family: $fontLight;
+        box-shadow: none;
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid #fff;
+        border-radius: 0;
+        background: transparent;
+        width: 100%;
+        color: #fff;
+        resize: none;
+        &::placeholder {
+            color: rgba(#fff, 0.5);
+            text-transform: uppercase;
+        }
+        &:focus {
+            border-color: $primary;
         }
     }
 }
