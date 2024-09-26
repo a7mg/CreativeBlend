@@ -1,6 +1,7 @@
 @import "audioPlayer";
 
 header {
+  cursor: auto;
   position: fixed;
   width: 100%;
   top: 0;
@@ -285,7 +286,7 @@ header {
   background-color: #000;
 }
 footer {
-  cursor: auto;
+  // cursor: auto;
   .footer-top {
     padding: rem(100) 0;
     @media (min-width: 993px) {

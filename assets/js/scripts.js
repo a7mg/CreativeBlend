@@ -107,7 +107,7 @@ function preLoading() {
                 });
                 preloadingTL.pause();
 
-                logoIcon();
+                // logoIcon();
             }
         }
     }, 0.5);
@@ -196,7 +196,7 @@ function global() {
         marqueeOpt.autoPlay = 5000;
         allMarquee[i] = $(n).flickity(marqueeOpt)
     })
-    
+
     // Our value section
     let valueTl = gsap.timeline();
     valueTl.fromTo('.our-value .section-title .border', 0.8, { width: 0, opacity: 0 }, { width: '100%', opacity: 1 }, 0);
@@ -321,11 +321,20 @@ function headerTheme() {
     let scroll = $(window).scrollTop() + $('header').height();
     $('.dark-header').each((i, element) => {
         if (
-            $(element).isInViewport()
-            && scroll >= $(element).offset().top
-            && (scroll <= $(element).offset().top + $(element).innerHeight())
+            $(element).isInViewport() &&
+            scroll >= $(element).offset().top &&
+            (scroll <= $(element).offset().top + $(element).innerHeight())
         ) {
             $('header').addClass('dark');
+        }
+    });
+    $('.dark-bg').each((i, element) => {
+        if (
+            $(element).isInViewport() &&
+            scroll >= $(element).offset().top &&
+            (scroll <= $(element).offset().top + $(element).innerHeight())
+        ) {
+            $('header').removeClass('dark');
         }
     });
 }
