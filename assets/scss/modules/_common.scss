@@ -42,7 +42,7 @@ body {
   cursor: image-set(url(#{$imgPath}/icons/cursor-black.svg) 1.5x), auto;
   overflow-x: hidden;
 }
-.dark-bg, .projects, .project-hero, .blogs-page {
+.dark-bg, .home-hero, .projects, .project-hero, .blogs-page {
   cursor: url(#{$imgPath}/icons/cursor.svg), auto;
   cursor: image-set(url(#{$imgPath}/icons/cursor.svg) 1.5x), auto;
 }
