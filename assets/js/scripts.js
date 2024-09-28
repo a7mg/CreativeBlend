@@ -104,6 +104,7 @@ function preLoading() {
             if ($('body').hasClass('loaded')) {
                 $('#loading').fadeOut(function () {
                     $('body').addClass('ready');
+                    heroSlider();
                 });
                 preloadingTL.pause();
 
@@ -124,6 +125,30 @@ function logoIcon() {
     }, 5000);
 }
 
+var heroSlides = $('.hero-slider > div').length;
+var activeSlideIndx = 0;
+var delay = Number($('.hero-slider').data('time')) || 5000;
+function heroSlider() {
+    $('.hero-slider > div').eq(activeSlideIndx).addClass('active');
+    move(delay)
+    setInterval(() => {
+        move(delay)
+        activeSlideIndx = (activeSlideIndx + 1) % heroSlides;
+        $('.hero-slider > div').removeClass('active');
+        $('.hero-slider > div').eq(activeSlideIndx).addClass('active');
+    }, delay)
+}
+function move(delay) {
+    var elem = $('.hero-wrapper .progress');
+    var end = Date.now() + delay;
+    var frame = () => {
+        var timeleft = Math.max(0, end - Date.now());
+        elem.css('width', ((100 * timeleft) / delay) + '%')
+        if (timeleft === 0) return;
+        requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+}
 function initScroll() {
     scroller = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),

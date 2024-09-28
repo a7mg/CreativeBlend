@@ -288,36 +288,66 @@ header {
 footer {
   // cursor: auto;
   .footer-top {
-    padding: rem(100) 0;
+    // padding: rem(100) 0;
+    // @media (min-width: 993px) {
+    //   display: flex;
+    //   gap: rem(50);
+    //   justify-content: space-between;
+    // }
+    // @media (max-width: 992px) {
+    //   .left {
+    //     display: none;
+    //   }
+    // }
+    // .left {
+    //   color: #000;
+    //   font-size: rem(16);
+    //   font-family: $fontLight;
+    //   .logo-container {
+    //     margin-bottom: rem(55);
+    //     img {
+    //       width: rem(580);
+    //       max-width: 100%;
+    //       display: block;
+    //     }
+    //   }
+    //   a {
+    //     color: #212121;
+    //     &:hover {
+    //       color: $primary;
+    //     }
+    //   }
+    // }
+
+    background-color: #E8E8E8;
+    .left {
+      width: 50%;
+    }
+    .right {
+      margin: auto;
+      width: 40%;
+      padding: rem(50) 0;
+      .social {
+        padding: 0;
+      }
+      p {
+        margin: 0 0 rem(50);
+      }
+    }
     @media (min-width: 993px) {
       display: flex;
-      gap: rem(50);
       justify-content: space-between;
     }
     @media (max-width: 992px) {
-      .left {
-        display: none;
+      .left, .right {
+        width: 100%;
+      }
+      .right {
+        padding-left: rem(20);
+        padding-right: rem(20);
       }
     }
-    .left {
-      color: #000;
-      font-size: rem(16);
-      font-family: $fontLight;
-      .logo-container {
-        margin-bottom: rem(55);
-        img {
-          width: rem(580);
-          max-width: 100%;
-          display: block;
-        }
-      }
-      a {
-        color: #212121;
-        &:hover {
-          color: $primary;
-        }
-      }
-    }
+    
     .right {
       font-size: rem(35);
       font-family: $fontLight;
@@ -327,6 +357,7 @@ footer {
       }
     }
   }
+
   .marquee-wrapper {
     padding: rem(20) 0;
     font-size: rem(40);
@@ -360,10 +391,10 @@ footer {
     }
   }
   .footer-bottom {
-    padding: rem(50) 0;
+    padding: rem(20) 0;
     background-color: $primary;
     @media (max-width: 767px) {
-      padding: rem(30) 0;
+      padding: rem(10) 0;
     }
   }
   .content {
