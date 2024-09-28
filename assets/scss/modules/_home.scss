@@ -304,7 +304,7 @@
         font-family: $fontLight;
         margin-bottom: rem(50);
         @media (max-width: 580px) {
-            font-size: 35px;
+            font-size: 333px;
             line-height: 45px;
         }
     }
@@ -863,6 +863,7 @@
         padding: rem(10) 0;
         font-family: $fontLight;
         white-space: nowrap;
+        color: #000;
         // @media (max-width: 767px) {
         //     font-size: rem(16);
         // }
