@@ -83,8 +83,10 @@ $(document)
  * FUNCTIONS
 /*=====================================*/
 function onDocumentReady() {
-    $("header").load("partial/header.html");
-    $("footer").load("partial/footer.html");
+    if (location.href.includes('127.0.0.1')) {
+        $("header").load("partial/header.html");
+        $("footer").load("partial/footer.html");
+    }
     gsap.config({ nullTargetWarn: false });
     gsap.registerPlugin(SplitText, ScrollTrigger);
     preLoading()
