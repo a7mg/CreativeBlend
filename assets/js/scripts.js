@@ -145,7 +145,7 @@ function move(delay) {
     var end = Date.now() + delay;
     var frame = () => {
         var timeleft = Math.max(0, end - Date.now());
-        elem.css('width', ((100 * timeleft) / delay) + '%')
+        elem.css('width', (100 - (100 * timeleft) / delay) + '%')
         if (timeleft === 0) return;
         requestAnimationFrame(frame);
     };
