@@ -89,7 +89,7 @@ function onDocumentReady() {
     }
     gsap.config({ nullTargetWarn: false });
     gsap.registerPlugin(SplitText, ScrollTrigger);
-    preLoading()
+    // preLoading()
     initScroll()
 }
 
@@ -197,6 +197,10 @@ function initScroll() {
 
 function onWindowLoad() {
     $('body').addClass('loaded');
+    $('#loading').fadeOut(function () {
+        $('body').addClass('ready');
+        heroSlider();
+    });
     // Pages
     global();
     //

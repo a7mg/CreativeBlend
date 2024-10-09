@@ -391,7 +391,7 @@ footer {
     }
   }
   .footer-bottom {
-    padding: rem(20) 0;
+    padding: rem(15) 0;
     background-color: $primary;
     @media (max-width: 767px) {
       padding: rem(10) 0;
@@ -430,7 +430,7 @@ footer {
     }
     img {
       display: block;
-      height: rem(25);
+      height: rem(22);
     }
     .current {
       display: none;
