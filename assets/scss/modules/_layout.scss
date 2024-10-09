@@ -363,6 +363,7 @@ footer {
     font-size: rem(40);
     font-family: $fontLight;
     line-height: rem(53);
+    text-transform: uppercase;
     @media (max-width: 580px) {
       font-size: 24px;
       line-height: 32px;

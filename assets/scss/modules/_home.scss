@@ -250,6 +250,7 @@
 }
 
 .section-title {
+    text-transform: uppercase;
     h1,
     h2 {
         font-size: rem(16);
@@ -299,12 +300,13 @@
         padding-bottom: rem(100);
     }
     .head-text {
-        font-size: rem(70);
-        line-height: rem(80);
+        text-transform: uppercase;
+        font-size: rem(60);
+        line-height: calc(70 / 70);
         font-family: $fontLight;
         margin-bottom: rem(50);
         @media (max-width: 580px) {
-            font-size: 33px;
+            font-size: 28px;
             line-height: 45px;
         }
     }
@@ -680,6 +682,9 @@
                         filter: none;
                     }
                 }
+                p {
+                    opacity: 1;
+                }
             }
             h4 {
                 font-weight: normal;
@@ -687,6 +692,7 @@
                 font-family: $fontLight;
                 line-height: 1.2;
                 margin: rem(10) 0 rem(3);
+                text-transform: capitalize;
             }
             h5 {
                 font-weight: normal;
@@ -700,6 +706,8 @@
                 font-family: $fontLight;
                 font-size: rem(16);
                 line-height: calc(21 / 16);
+                opacity: 0;
+                transition: opacity ease 0.4s;
             }
         }
         .team-slider {
@@ -804,6 +812,7 @@
         }
         a {
             color: #000;
+            text-transform: none;
         }
         .project-content {
             padding: rem(17) 0;
@@ -959,6 +968,9 @@
     .project-images {
         padding-left: 5%;
         padding-right: 5%;
+        width: 90%;
+        margin: auto;
+        max-width: 100%;
         @media (max-width: 992px) {
             padding-bottom: rem(50);
             padding-left: 0;
@@ -1054,6 +1066,7 @@
         line-height: 1.5;
         margin-bottom: rem(70);
         color: #fff;
+        // text-transform: none;
         .info {
             width: 75%;
         }
@@ -1069,6 +1082,9 @@
             line-height: 1.3;
             margin: 0 0 rem(12);
         }
+        .yellow {
+            text-transform: uppercase;
+        }
         .section-title {
             margin-bottom: rem(55);
             h1,
@@ -1079,6 +1095,8 @@
         }
         p {
             margin: 0 0 rem(35);
+            text-transform: none;
+            font-family: $fontLight;
         }
         @media (max-width: 1200px) {
             .info {
@@ -1109,6 +1127,12 @@
                 }
             }
         }
+        .date {
+            text-transform: uppercase;
+        }
+        .gray {
+            text-transform: uppercase;
+        }
     }
     .row {
         .col {
@@ -1137,6 +1161,7 @@
     .date {
         display: flex;
         align-items: center;
+        text-transform: uppercase;
         @media (min-width: 768px) {
             position: relative;
             #{$left}: rem(-27);
@@ -1152,6 +1177,7 @@
         }
     }
     .gray {
+        text-transform: uppercase;
         @media (max-width: 767px) {
             margin-#{$left}: rem(27);
         }
@@ -1174,6 +1200,7 @@
         font-family: $fontLight;
         line-height: 1.4;
         margin: 0 0 rem(70);
+        text-transform: uppercase;
         @media (max-width: 767px) {
             font-size: rem(40);
         }
@@ -1243,8 +1270,9 @@
         }
         p {
             font-size: rem(16);
-            font-weight: $fontLight;
+            font-family: $fontLight;
             margin: 0;
+            text-transform: none;
             @media (max-width: 767px) {
                 display: none;
             }

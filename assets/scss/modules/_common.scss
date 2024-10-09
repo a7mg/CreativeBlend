@@ -37,12 +37,18 @@ body {
   // scroll-behavior: smooth;
   // overflow: hidden;
   margin: 0;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   cursor: url(#{$imgPath}/icons/cursor-black.svg), auto;
   cursor: image-set(url(#{$imgPath}/icons/cursor-black.svg) 1.5x), auto;
   overflow-x: hidden;
 }
-.dark-bg, .home-hero, .projects, .project-hero, .blogs-page, .blog-nav, .popup {
+.dark-bg,
+.home-hero,
+.projects,
+.project-hero,
+.blogs-page,
+.blog-nav,
+.popup {
   cursor: url(#{$imgPath}/icons/cursor.svg), auto;
   cursor: image-set(url(#{$imgPath}/icons/cursor.svg) 1.5x), auto;
 }
@@ -151,7 +157,7 @@ button:focus {
   color: $primary;
 }
 .gray {
-  color: #6A6A6A;
+  color: #6a6a6a;
 }
 .base-fit {
   position: relative;
@@ -161,6 +167,10 @@ button:focus {
     display: block;
     padding-top: 50%;
   }
+  &.video:before {
+    padding-top: 56.25%;
+  }
+  > *,
   video,
   img {
     position: absolute;
