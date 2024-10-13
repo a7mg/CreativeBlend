@@ -177,7 +177,7 @@ button:focus {
     &::before {
       padding-top: 56.25%;
     }
-    &::after {
+    &:not(.controlled)::after {
       content: "";
       position: absolute;
       top: 0;
