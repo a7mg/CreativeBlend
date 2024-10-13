@@ -10,6 +10,7 @@ header {
   color: #fff;
   font-size: rem(16);
   font-family: $fontLight;
+  direction: ltr;
   .header-wrapper {
     padding: $globalGap 0 0;
     display: flex;
@@ -91,11 +92,14 @@ header {
     margin: 0;
     list-style: none;
     @media (min-width: 768px) {
-      margin-#{$right}: rem(50);
+      margin-right: rem(50);
     }
     a {
       padding: rem(3) 0;
       display: block;
+      font-family: $fontLight;
+      font-size: rem(16);
+      line-height: calc(23 / 16);
     }
     .active {
       color: $primary !important;
@@ -105,7 +109,7 @@ header {
         content: "";
         position: absolute;
         top: 50%;
-        #{$left}: rem(-5);
+        left: rem(-5);
         transform: translate(-100%, -50%);
         width: 0;
         height: 0;
@@ -155,7 +159,7 @@ header {
 }
 .lang-toggle {
   @media (min-width: 768px) {
-    margin-#{$left}: rem(35);
+    margin-left: rem(35);
   }
   a:not(.active) {
     color: #7e7e7e !important;
@@ -319,9 +323,9 @@ footer {
     //   }
     // }
 
-    background-color: #E8E8E8;
+    background-color: #e8e8e8;
     .left {
-      width: 50%;
+      min-width: 50%;
     }
     .right {
       margin: auto;
@@ -339,7 +343,8 @@ footer {
       justify-content: space-between;
     }
     @media (max-width: 992px) {
-      .left, .right {
+      .left,
+      .right {
         width: 100%;
       }
       .right {
@@ -347,7 +352,7 @@ footer {
         padding-right: rem(20);
       }
     }
-    
+
     .right {
       font-size: rem(35);
       font-family: $fontLight;
@@ -452,7 +457,7 @@ footer {
         left: 0;
         z-index: 5;
         display: none;
-        background-color: #FFF;
+        background-color: #fff;
         padding: rem(10);
         box-shadow: 0 0 10px rgba(#000, 0.1);
         li + li {

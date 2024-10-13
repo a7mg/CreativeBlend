@@ -242,7 +242,7 @@
                     height: 0;
                     border-top: rem(6) solid transparent;
                     border-bottom: rem(6) solid transparent;
-                    border-#{$left}: rem(12) solid #000;
+                    border-left: rem(12) solid #000;
                 }
             }
         }
@@ -334,7 +334,12 @@
                 &::after,
                 &::before {
                     position: absolute;
-                    transform: translate(-100%, -50%);
+                    @if ($mainSiteLang == "ar") {
+                        transform: translate(100%, -50%);
+                    }
+                    @if ($mainSiteLang == "en") {
+                        transform: translate(-100%, -50%);
+                    }
                     margin: auto;
                     content: "";
                     width: 0;

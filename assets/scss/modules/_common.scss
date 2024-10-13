@@ -2,6 +2,12 @@
   scroll-behavior: initial;
 }
 html {
+  @if ($mainSiteLang == "ar") {
+    direction: rtl;
+  }
+  @if ($mainSiteLang == "en") {
+    direction: ltr;
+  }
   @media (min-width: 1800px) {
     font-size: 18px;
   }
@@ -167,8 +173,19 @@ button:focus {
     display: block;
     padding-top: 50%;
   }
-  &.video:before {
-    padding-top: 56.25%;
+  &.video {
+    &::before {
+      padding-top: 56.25%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
   }
   > *,
   video,
@@ -196,7 +213,7 @@ button:focus {
       line-height: rem(53);
       font-family: $fontThin;
     }
-    &:hover {
+    &:hover, &.active {
       color: $primary !important;
     }
   }
@@ -253,4 +270,57 @@ button:focus {
 
 .w-100 {
   width: 100%;
+}
+
+/************************************/
+.social-share {
+  margin-top: rem(50);
+  width: 100%;
+  padding: rem(50) rem(15);
+  background-color: #000;
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  a {
+    text-decoration: none;
+    width: rem(60);
+    height: rem(60);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: border-radius 0.2s linear 0s;
+    transform: rotate(45deg);
+
+    & + a {
+      margin-#{$left}: rem(20);
+    }
+
+    svg {
+      position: relative;
+      z-index: 3;
+      vertical-align: middle;
+      transition: transform 0.01s linear 0s;
+      transform: rotate(-45deg);
+      height: rem(30);
+      path {
+        fill: #FFF;
+      }
+    }
+
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    &:hover {
+      border-radius: 0px;
+    }
+  }
 }
