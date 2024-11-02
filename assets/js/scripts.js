@@ -24,7 +24,9 @@ let heroVideo = $('.popup video');
 /*=====================================*
  * WINDOW EVENTS
 /*=====================================*/
-setTimeout(onWindowLoad, 3000);
+if ($('.home-hero').length) {
+    setTimeout(onWindowLoad, 3000);
+}
 $(window)
     .on('load', onWindowLoad)
     .on('scroll', onWindowScroll)
@@ -155,7 +157,7 @@ function move(delay) {
     var frame = () => {
         var timeleft = Math.max(0, end - Date.now());
         // console.log(timeleft);
-        
+
         elem.css('width', (100 - (100 * timeleft) / delay) + '%')
         if (timeleft === 0) return;
         requestAnimationFrame(frame);
@@ -207,6 +209,7 @@ function initScroll() {
 }
 
 function onWindowLoad() {
+    if ($('body').hasClass('loaded')) return;
     $('body').addClass('loaded');
     $('#loading').fadeOut(function () {
         $('body').addClass('ready');
@@ -243,12 +246,17 @@ function global() {
     let valueTl = gsap.timeline();
     valueTl.fromTo('.our-value .section-title .border', 0.8, { width: 0, opacity: 0 }, { width: '100%', opacity: 1 }, 0);
     valueTl.fromTo('.our-value .section-title h2', 0.5, { y: '100%', opacity: 0 }, { y: 0, opacity: 1 });
-    let splitValueLines = new SplitText(".our-value .content p", { type: "lines, words" });
-    valueTl.staggerFrom(splitValueLines.lines, 0.8, { x: 100, autoAlpha: 0 }, 0.1, 0.5);
+    if ($('html').attr('dir') !== 'rtl') {
+        let splitValueLines = new SplitText(".our-value .content p", { type: "lines, words" });
+        valueTl.staggerFrom(splitValueLines.lines, 0.8, { x: 100, autoAlpha: 0 }, 0.1, 0.5);
+    }
+    if ($('html').attr('dir') == 'rtl') {
+        valueTl.fromTo('.our-value .content', 0.5, { x: '100', opacity: 0 }, { x: 0, opacity: 1 });
+    }
     ScrollTrigger.create({
         trigger: ".our-value",
         start: "top 70%",
-        toggleActions: "restart pause resume reset",
+        // toggleActions: "restart pause resume reset",
         animation: valueTl.play()
     })
     // End Our value section
@@ -441,3 +449,39 @@ $.fn.isInViewport = function () {
 //     const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
 //     window.open(shareUrl, '_blank');
 // });
+
+// $('iframe').each(function() {
+//     var me = $(this);
+//     me.on('mouseenter', function() {
+//         me.css('pointer-events', 'none');
+//     })
+//     me.on('click, mouseleave', function() {
+//         me.css('pointer-events', 'auto');
+//     })
+// })
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Select all YouTube iframes on the page
+    var iframes = document.querySelectorAll('iframe');
+
+    // Loop through each iframe and handle mouse events
+    iframes.forEach(function (iframe) {
+        // Disable pointer events when scrolling
+        iframe.addEventListener('mouseenter', function () {
+            // this.style.pointerEvents = 'none';
+            $(this).parent().css('pointer-events', 'none');
+        });
+
+        // Re-enable pointer events on click
+        iframe.addEventListener('click', function () {
+            // this.style.pointerEvents = 'auto';
+            $(this).parent().css('pointer-events', 'auto');
+        });
+
+        // Re-enable pointer events when the mouse leaves the iframe
+        iframe.addEventListener('mouseleave', function () {
+            // this.style.pointerEvents = 'auto';
+            $(this).parent().css('pointer-events', 'auto');
+        });
+    });
+});

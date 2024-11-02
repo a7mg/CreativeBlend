@@ -597,6 +597,14 @@
                 @media (max-width: 580px) {
                     height: 55px;
                 }
+                &:not(.flickity-enabled) {
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden;
+                    img {
+                        max-width: none;
+                    }
+                }
             }
             .flickity-slider {
                 display: flex;
@@ -712,7 +720,7 @@
                 font-size: rem(16);
                 line-height: calc(21 / 16);
                 opacity: 0;
-                transition: opacity ease 0.4s;
+                transition: opacity ease 1s;
             }
         }
         .team-slider {
@@ -853,6 +861,15 @@
         video {
             opacity: 1;
         }
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#000, 0.3);
     }
 }
 .filter {
@@ -1067,6 +1084,7 @@
     }
     .item {
         display: flex;
+        align-items: center;
         font-size: rem(20);
         line-height: 1.5;
         margin-bottom: rem(70);

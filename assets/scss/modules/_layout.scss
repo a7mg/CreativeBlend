@@ -290,6 +290,7 @@ header {
   background-color: #000;
 }
 footer {
+  direction: ltr;
   // cursor: auto;
   .footer-top {
     // padding: rem(100) 0;
@@ -337,6 +338,12 @@ footer {
       p {
         margin: 0 0 rem(50);
       }
+      a {
+        color: #000;
+        &:hover {
+          color: $primary;
+        }
+      }
     }
     @media (min-width: 993px) {
       display: flex;
@@ -382,7 +389,7 @@ footer {
       }
       img {
         height: rem(35);
-        margin-#{$right}: rem(15);
+        margin-right: rem(15);
         @media (max-width: 580px) {
           height: rem(25);
         }
@@ -410,7 +417,7 @@ footer {
   }
   .country-list {
     position: relative;
-    margin-#{$right}: rem(40);
+    margin-right: rem(40);
     @media (min-width: 993px) {
       min-width: 50%;
     }
@@ -422,7 +429,7 @@ footer {
       list-style: none;
       @media (min-width: 768px) {
         li + li {
-          margin-#{$left}: rem(20);
+          margin-left: rem(20);
         }
       }
     }
@@ -443,7 +450,7 @@ footer {
       font-size: rem(27);
       font-family: $fontThin;
       img {
-        margin-#{$right}: rem(5);
+        margin-right: rem(5);
       }
     }
     @media (max-width: 767px) {
@@ -483,7 +490,7 @@ footer {
     list-style: none;
     li {
       & + li {
-        margin-#{$left}: rem(20);
+        margin-left: rem(20);
       }
       img {
         width: rem(45);
