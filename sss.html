@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locomotive Scroll with Iframe Hover Solution</title>
+  <link rel="stylesheet" href="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.css">
+  <style>
+    iframe {
+      width: 100%;
+      height: 315px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body data-scroll-container>
+
+<h1>Scroll with Locomotive Scroll</h1>
+<p>Scroll down to see the embedded videos. Hovering over them should allow native scrolling over the iframe.</p>
+
+<!-- YouTube Embed -->
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+
+<!-- Vimeo Embed -->
+<iframe src="https://player.vimeo.com/video/76979871" frameborder="0" allowfullscreen></iframe>
+
+<p>Scrolling should pause on hover and resume with smooth scrolling afterward.</p>
+
+<script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+<script>
+  // Initialize Locomotive Scroll with smooth scrolling enabled
+  let scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true
+  });
+
+  // Function to disable smooth scrolling
+  function disableSmoothScroll() {
+    scroll.destroy(); // Completely stop Locomotive Scroll
+    document.body.style.overflow = "auto"; // Enable native scrolling
+  }
+
+  // Function to re-enable smooth scrolling
+  function enableSmoothScroll() {
+    document.body.style.overflow = ""; // Clear native scroll style
+    scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true
+    }); // Reinitialize Locomotive Scroll
+  }
+
+  // Select all iframes and add hover event listeners
+  const iframes = document.querySelectorAll('iframe');
+  iframes.forEach((iframe) => {
+    iframe.addEventListener('mouseenter', disableSmoothScroll);
+    iframe.addEventListener('mouseleave', enableSmoothScroll);
+  });
+</script>
+
+</body>
+</html>

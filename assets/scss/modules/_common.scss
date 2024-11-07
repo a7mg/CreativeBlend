@@ -188,10 +188,19 @@ button:focus {
       z-index: 1;
       display: block;
     }
-    &.controlled:hover {
-      &::after {
-        content: none;
-      }
+    &.controlled {
+      cursor: pointer !important;
+    //   iframe {
+    //     cursor: hand !important;
+    //   }
+    //   &::after {
+    //     content: none;
+    //   }
+    //   // &:hover {
+    //   //   &::after {
+    //   //     content: none;
+    //   //   }
+    //   // }
     }
   }
   > *,
@@ -220,7 +229,8 @@ button:focus {
       line-height: rem(53);
       font-family: $fontThin;
     }
-    &:hover, &.active {
+    &:hover,
+    &.active {
       color: $primary !important;
     }
   }
@@ -316,7 +326,7 @@ button:focus {
       transform: rotate(-45deg);
       height: rem(30);
       path {
-        fill: #FFF;
+        fill: #fff;
       }
     }
 
@@ -330,4 +340,10 @@ button:focus {
       border-radius: 0px;
     }
   }
+}
+.e-none {
+  pointer-events: none;
+}
+.e-auto {
+  pointer-events: auto;
 }

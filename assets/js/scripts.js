@@ -49,16 +49,26 @@ $(document)
         $('header').toggleClass('menu-opend');
     })
     .on('click', '.hero-bottom .play-btn', function () {
-        $('.popup').addClass('active');
         $('.hero-bottom').fadeOut();
-        heroVideo.get(0).play(0);
-        heroVideo.prop('muted', true);
+        if (heroVideo.get(0)) {
+            heroVideo.get(0).play(0);
+            heroVideo.prop('muted', true);
+        }
+        if ($('.popup iframe').length) {
+            $('.popup iframe').attr('src', $('.popup iframe').attr('data-src'));
+        }
+        $('.popup').addClass('active');
     })
     .on('click', '.popup .close', function () {
         $('.popup').removeClass('active');
         $('.hero-bottom').fadeIn();
-        heroVideo.stop();
-        heroVideo.prop('muted', true);
+        if (heroVideo) {
+            heroVideo.stop();
+            heroVideo.prop('muted', true);
+        }
+        if ($('.popup iframe').length) {
+            $('.popup iframe').removeAttr('src');
+        }
     })
     .on('click', '.country-list .current', function () {
         $(this).next('ul').toggleClass('active');
@@ -167,8 +177,14 @@ function move(delay) {
 function initScroll() {
     scroller = new LocomotiveScroll({
         el: document.querySelector('[data-scroll-container]'),
+        lerp: 0.05,
         smooth: true,
-        lerp: 0.05
+        mobile: {
+            smooth: true
+        },
+        tablet: {
+            smooth: true
+        }
     });
     scroller.update();
     scroller.on('scroll', (event) => {
@@ -413,75 +429,10 @@ $.fn.isInViewport = function () {
     return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 
-
-
-// $('.share-btn').on('click', function (e) {
-//     let shareUrl;
-//     const url = encodeURIComponent(window.location.href);
-//     if ($(this).hasClass('fb')) {
-//         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-//     }
-//     if ($(this).hasClass('tw')) {
-//         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-//     }
-//     if ($(this).hasClass('in')) {
-//         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-//     }
-//     if ($(this).hasClass('pi')) {
-//         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-//     } else {
-//         return
-//     }
-//     e.preventDefault()
-//     window.open(shareUrl, '_blank');
-// });
-
-// $('.tw').on('click', function (e) {
-//     e.preventDefault()
-//     const url = encodeURIComponent(window.location.href);
-//     const text = encodeURIComponent(document.title);
-//     const shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
-//     window.open(shareUrl, '_blank');
-// });
-// $('.in').on('click', function (e) {
-//     e.preventDefault()
-//     const url = encodeURIComponent(window.location.href);
-//     const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-//     window.open(shareUrl, '_blank');
-// });
-
-// $('iframe').each(function() {
-//     var me = $(this);
-//     me.on('mouseenter', function() {
-//         me.css('pointer-events', 'none');
-//     })
-//     me.on('click, mouseleave', function() {
-//         me.css('pointer-events', 'auto');
-//     })
-// })
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Select all YouTube iframes on the page
-    var iframes = document.querySelectorAll('iframe');
-
-    // Loop through each iframe and handle mouse events
-    iframes.forEach(function (iframe) {
-        // Disable pointer events when scrolling
-        iframe.addEventListener('mouseenter', function () {
-            // this.style.pointerEvents = 'none';
-            $(this).parent().css('pointer-events', 'none');
-        });
-
-        // Re-enable pointer events on click
-        iframe.addEventListener('click', function () {
-            // this.style.pointerEvents = 'auto';
-            $(this).parent().css('pointer-events', 'auto');
-        });
-
-        // Re-enable pointer events when the mouse leaves the iframe
-        iframe.addEventListener('mouseleave', function () {
-            // this.style.pointerEvents = 'auto';
-            $(this).parent().css('pointer-events', 'auto');
-        });
-    });
-});
+$('.project-details .controlled').on('click', function () {
+    let me = $(this);
+    let video = me.find('iframe').clone();
+    video.attr('src', video.attr('src') + '?controls=1&autoplay=1');
+    $('.popup .pop-content').html(video);
+    $('.popup').addClass('active');
+})
