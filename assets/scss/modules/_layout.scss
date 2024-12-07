@@ -359,7 +359,13 @@ footer {
         padding-right: rem(20);
       }
     }
-
+    .copyright {
+      font-size: rem(16);
+      margin: 0;
+      font-family: $fontRegular;
+      margin-top: rem(30);
+      text-transform: uppercase;
+    }
     .right {
       font-size: rem(35);
       font-family: $fontLight;
@@ -408,6 +414,12 @@ footer {
     background-color: $primary;
     @media (max-width: 767px) {
       padding: rem(10) 0;
+    }
+    h4 {
+      font-size: rem(25);
+      margin: 0;
+      font-family: $fontLight;
+      text-transform: uppercase;
     }
   }
   .content {
@@ -477,7 +489,7 @@ footer {
     }
   }
   .audio {
-    flex: 1;
+    width: 50%;
     @media (max-width: 580px) {
       width: 100%;
     }

@@ -19,7 +19,7 @@ $default-behaviour: true; //  true or false
 @font-face {
     font-family: "FontThin";
     @if ($mainSiteLang == "ar") {
-        src: url(../../fonts/Arabic/FSAlbertArabic/FSAlbertArabic-Light.otf);
+        src: url(../../fonts/Arabic/FrutigerLTArabic/FSAlbertArabic-Light.otf);
     }
     @if ($mainSiteLang == "en") {
         src: url(../../fonts/English/Roboto/Roboto-Thin.ttf);
@@ -28,7 +28,7 @@ $default-behaviour: true; //  true or false
 @font-face {
     font-family: "FontLight";
     @if ($mainSiteLang == "ar") {
-        src: url(../../fonts/Arabic/FSAlbertArabic/FSAlbertArabic-Light.otf);
+        src: url(../../fonts/Arabic/FrutigerLTArabic/FrutigerLTArabic-45Light.ttf);
     }
     @if ($mainSiteLang == "en") {
         src: url(../../fonts/English/Roboto/Roboto-Light.ttf);
@@ -37,7 +37,7 @@ $default-behaviour: true; //  true or false
 @font-face {
     font-family: "FontRegular";
     @if ($mainSiteLang == "ar") {
-        src: url(../../fonts/Arabic/FSAlbertArabic/FSAlbertArabic-Regular.otf);
+        src: url(../../fonts/Arabic/FrutigerLTArabic/FrutigerLTArabic-55Roman.ttf);
     }
     @if ($mainSiteLang == "en") {
         src: url(../../fonts/English/Roboto/Roboto-Regular.ttf);
@@ -46,7 +46,7 @@ $default-behaviour: true; //  true or false
 @font-face {
     font-family: "FontMedium";
     @if ($mainSiteLang == "ar") {
-        src: url(../../fonts/Arabic/FSAlbertArabic/FSAlbertArabic-Bold.otf);
+        src: url(../../fonts/Arabic/FrutigerLTArabic/FrutigerLTArabic-65Bold.ttf);
     }
     @if ($mainSiteLang == "en") {
         src: url(../../fonts/English/Roboto/Roboto-Medium.ttf);
@@ -55,7 +55,7 @@ $default-behaviour: true; //  true or false
 @font-face {
     font-family: "FontBold";
     @if ($mainSiteLang == "ar") {
-        src: url(../../fonts/Arabic/FSAlbertArabic/FSAlbertArabic-ExtraBold.otf);
+        src: url(../../fonts/Arabic/FrutigerLTArabic/FrutigerLTArabic-75Black.ttf);
     }
     @if ($mainSiteLang == "en") {
         src: url(../../fonts/English/Roboto/Roboto-Bold.ttf);

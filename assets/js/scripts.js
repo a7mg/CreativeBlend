@@ -279,7 +279,7 @@ function global() {
 
     $('.partners .marquee-wrapper').each((i, n) => {
         var options = { ...marqueeOpt };
-        options.setGallerySize = false;
+        // options.setGallerySize = false;
         options.rightToLeft = $(n).hasClass('right');
         options.autoPlay = 3000;
         allMarquee[i] = $(n).flickity(options)
