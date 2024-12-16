@@ -613,25 +613,32 @@
             .item {
                 padding: 0 rem(30);
                 width: rem(350);
+                @media (max-width: 767px) {
+                    padding: 0;
+                    width: rem(280);
+                }
                 &:hover {
                     img {
                         opacity: 1;
                     }
                 }
+                div {
+                    position: relative;
+                }
             }
             img {
                 margin: auto;
-                // max-height: rem(110);
                 display: block;
-                opacity: 0.7;
-                filter: grayscale(1);
+                // max-height: rem(110);
+                // opacity: 0.7;
+                // filter: grayscale(1);
                 // @media (max-width: 580px) {
                 //     max-height: 55px;
                 // }
-                &:hover {
-                    filter: none;
-                }
-                &:last-child {
+                // &:hover {
+                //     filter: none;
+                // }
+                &:nth-child(2) {
                     opacity: 0;
                     transition: opacity ease 0.2s;
                     position: absolute;
